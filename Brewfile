@@ -1,20 +1,22 @@
-tap "buo/cask-upgrade"
+tap "homebrew/core"
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
+tap "homebrew/cask-fonts"
+tap "buo/cask-upgrade"
+
 brew "git"
 brew "curl"
 brew "openssh"
 brew "neovim"
-brew "cask"
-brew "mas"
 brew "watch"
 brew "tree"
 brew "flyway"
 brew "rabbitmq"
 brew "memcached"
+
+brew "cask"
+
 cask "barrier"
 cask "google-chrome"
 cask "zoom"
@@ -30,6 +32,9 @@ cask "visual-studio-code"
 # cask "intellij-idea" # pending: uninstall download version
 cask "dotnet-sdk"
 
+brew "mas"
+
+mas "Amphetamine", id: 937984704
 mas "1Password 7 - Password Manager", id: 1333542190
 cask "1password-cli"
 
