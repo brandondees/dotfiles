@@ -105,6 +105,10 @@ fi
 # Use asdf-vm
 . /Users/dees/.asdf/asdf.sh
 
+# Use direnv
+# https://direnv.net/
+eval "$(direnv hook zsh)"
+
 # SSH Agent
 eval "$(ssh-agent -s)"
 
