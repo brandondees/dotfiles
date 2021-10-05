@@ -10,6 +10,7 @@ brew "openssh"
 brew "neovim"
 brew "direnv"
 brew "autojump"
+brew "ripgrep"
 brew "fzf"
 
 brew "watch"
