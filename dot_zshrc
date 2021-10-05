@@ -76,7 +76,9 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 plugins=(
   autojump
   asdf
+  brew
   bundler
+  direnv
   git
   osx
   rake
@@ -105,10 +107,6 @@ fi
 
 # Use asdf-vm
 . /Users/dees/.asdf/asdf.sh
-
-# Use direnv
-# https://direnv.net/
-eval "$(direnv hook zsh)"
 
 # SSH Agent
 eval "$(ssh-agent -s)"
