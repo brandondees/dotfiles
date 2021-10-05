@@ -12,6 +12,7 @@ brew "direnv"
 brew "autojump"
 brew "ripgrep"
 brew "fzf"
+brew "tig"
 
 brew "watch"
 brew "tree"
