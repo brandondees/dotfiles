@@ -8,6 +8,7 @@ tap "buo/cask-upgrade"
 brew "git"
 brew "openssh"
 brew "neovim"
+brew "direnv"
 
 brew "watch"
 brew "tree"
