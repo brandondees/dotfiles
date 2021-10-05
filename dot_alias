@@ -1,1 +1,1 @@
-alias ssh-key-generate="ssh-keygen -o -a 100 -t ed25519 -C $EMAIL"
+alias ssh-key-generate='ssh-keygen -o -a 100 -t ed25519 -C $EMAIL'
