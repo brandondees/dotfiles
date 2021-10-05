@@ -9,6 +9,7 @@ brew "git"
 brew "openssh"
 brew "neovim"
 brew "direnv"
+brew "autojump"
 
 brew "watch"
 brew "tree"
