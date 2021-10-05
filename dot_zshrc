@@ -118,4 +118,3 @@ eval "$(ssh-agent -s)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . ~/.alias
 
-
