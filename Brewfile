@@ -6,7 +6,6 @@ tap "homebrew/cask-fonts"
 tap "buo/cask-upgrade"
 
 brew "git"
-brew "curl"
 brew "openssh"
 brew "neovim"
 brew "watch"
