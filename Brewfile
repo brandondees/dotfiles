@@ -13,6 +13,7 @@ brew "autojump"
 brew "ripgrep"
 brew "fzf"
 brew "tig"
+brew "thefuck"
 
 brew "watch"
 brew "tree"
