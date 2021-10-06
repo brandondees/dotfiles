@@ -34,6 +34,7 @@ cask "dropbox"
 cask "syncthing"
 cask "istat-menus" # todo: set up license activation
 cask "font-fira-code"
+cask "font-iosevka-nerd-font"
 cask "visual-studio-code"
 # cask "intellij-idea" # pending: uninstall download version
 cask "dotnet-sdk"
