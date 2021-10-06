@@ -23,6 +23,8 @@ brew "memcached"
 
 brew "cask"
 
+cask "kitty"
+cask "alacritty"
 cask "barrier"
 cask "google-chrome"
 cask "zoom"
