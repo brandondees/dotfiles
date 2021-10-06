@@ -28,6 +28,7 @@ cask "alacritty"
 cask "barrier"
 cask "google-chrome"
 cask "zoom"
+cask "tuple"
 cask "cakebrew"
 cask "docker"
 cask "postgres-unofficial" # postgresapp.com
