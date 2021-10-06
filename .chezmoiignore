@@ -1,15 +1,23 @@
+# General homedir junk
+
+.CFUserTextEncoding
 .DS_Store
 .Trash
 .cache
+.dropbox
+.gem
+.npm
+.m2
 .viminfo
-
 
 Applications
 Desktop
 Documents
 Downloads
 *Dropbox
+IdeaProjects
 Movies
+Music
 Pictures
 Projects
 Public
@@ -17,4 +25,9 @@ Sync
 
 *_history
 
+# Keep .keep
 !**.keep
+
+# Protect secret credentials, make individual config files explicit
+.ssh/
+.gnupg/
