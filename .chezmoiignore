@@ -29,5 +29,7 @@ Sync
 !**.keep
 
 # Protect secret credentials, make individual config files explicit
-.ssh/
-.gnupg/
+.ssh/*
+.gnupg/*
+
+!.ssh/config
