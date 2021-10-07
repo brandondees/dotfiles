@@ -5,9 +5,8 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
-["osx-config-check"]
-    type = "file"
-    url = "https://github.com/kristovatlas/osx-config-check"
-    exact = true
+["osx-config-check/"]
+    type = "archive"
+    url = "https://github.com/kristovatlas/osx-config-check/archive/master.tar.gz"
     stripComponents = 1
     refreshPeriod = "72h"

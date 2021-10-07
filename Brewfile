@@ -8,6 +8,7 @@ tap "federico-terzi/espanso"
 
 brew "git"
 brew "openssh"
+brew "openssl"
 brew "neovim"
 brew "direnv"
 brew "autojump"
