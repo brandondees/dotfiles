@@ -37,6 +37,7 @@ cask "postgres-unofficial" # postgresapp.com
 cask "jpadilla-redis"
 cask "dropbox"
 cask "syncthing"
+cask "keybase"
 cask "istat-menus" # todo: set up license activation
 cask "font-fira-code"
 cask "font-iosevka-nerd-font"
