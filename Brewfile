@@ -26,6 +26,7 @@ brew "memcached"
 
 brew "cask"
 
+cask "lockdown"
 cask "kitty"
 cask "alacritty"
 cask "barrier"
