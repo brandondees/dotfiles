@@ -1,4 +1,12 @@
 Host *
+  UseRoaming no
+  PasswordAuthentication no
+  GSSAPIAuthentication no
+  ForwardX11 no
+  ForwardX11Trusted no
+  ForwardAgent no
+  ServerAliveInterval 60
+  ControlMaster no
   IgnoreUnknown UseKeychain
   AddKeysToAgent yes
   UseKeychain yes
