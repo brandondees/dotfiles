@@ -94,6 +94,7 @@ plugins=(
   terraform
   thefuck
   vi-mode
+  zsh-syntax-highlighting # must be last plugin
 )
 
 source $ZSH/oh-my-zsh.sh
