@@ -16,6 +16,7 @@ brew "fzf"
 brew "tig"
 brew "thefuck"
 brew "espanso"
+brew "zsh-syntax-highlighting"
 
 brew "watch"
 brew "tree"
