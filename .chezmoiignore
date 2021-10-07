@@ -33,3 +33,4 @@ Sync
 .gnupg/*
 
 !.ssh/config
+!.gnupg/gpg.conf
