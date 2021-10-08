@@ -19,6 +19,7 @@ brew "thefuck"
 brew "espanso"
 brew "zsh"
 brew "zsh-syntax-highlighting"
+brew "tmux"
 
 brew "watch"
 brew "tree"
