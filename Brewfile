@@ -65,3 +65,5 @@ brew "bitwarden-cli"
 mas "Tailscale", id: 1475387142
 mas "Alfred", id: 405843582
 mas "SwordSoft Screenink", id: 556304449
+
+mas "Slack for Desktop", id: 803453959  
