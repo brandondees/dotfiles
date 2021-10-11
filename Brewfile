@@ -48,6 +48,7 @@ cask "font-iosevka-nerd-font"
 cask "visual-studio-code"
 # cask "intellij-idea" # pending: uninstall download version
 cask "dotnet-sdk"
+cask "discord"
 
 brew "mas"
 
