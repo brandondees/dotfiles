@@ -65,6 +65,7 @@ mas "Red - UI for Redis", id: 1491764008
 mas "Bitwarden", id: 1352778147
 brew "bitwarden-cli"
 
+mas "EasyRes", id: 688211836
 mas "Tailscale", id: 1475387142
 mas "Alfred", id: 405843582
 mas "SwordSoft Screenink", id: 556304449
