@@ -46,6 +46,7 @@ cask "istat-menus" # todo: set up license activation
 cask "font-fira-code"
 cask "font-iosevka-nerd-font"
 cask "visual-studio-code"
+cask "insomnia"
 # cask "intellij-idea" # pending: uninstall download version
 cask "dotnet-sdk"
 cask "discord"
