@@ -55,8 +55,13 @@ Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rktjmp/lush.nvim'
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
+
+" Ruby language features
+" https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
+autocmd FileType ruby compiler ruby
 
 " See whitespace
 set list
