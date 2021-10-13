@@ -54,6 +54,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'rktjmp/lush.nvim'
 
 call plug#end()
 
@@ -117,5 +118,3 @@ set directory=/tmp
 
 " Spellcheck on by default for markdown
 autocmd BufRead,BufNewFile *md setlocal spell
-
-
