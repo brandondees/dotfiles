@@ -1,0 +1,121 @@
+:set nocompatible " vim, not vi
+
+" turn off mouse mode
+" set mouse=c
+
+" tabs to 2 spaces
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+filetype plugin indent on
+
+" language specific, too
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+
+" live reload files if it changes on disk
+set autoread
+
+" word wrap more excellently
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+
+" relative line numbers
+set relativenumber
+set number
+
+" search options
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" Install and apply vim plug when needed
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+call plug#begin(data_dir . 'plugged')
+
+Plug 'junegunn/vim-plug'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'w0rp/ale'
+Plug 'editorconfig/editorconfig-vim'
+
+call plug#end()
+
+" See whitespace
+set list
+
+" custom leader commands
+let mapleader = ","
+" source vimrc
+map <leader>so :source $MYVIMRC<CR>
+map <leader>vr :split $MYVIMRC<CR>
+map <Esc><Esc> :noh<CR>:set nopaste<CR>
+map <leader>r :!resize<CR><CR>
+map <leader>f :set paste<CR>mmggi# frozen_string_literal: true<CR><CR><Esc>`m:set nopaste<CR>
+map <leader>c :!ctags -R --languages=ruby --exclude=.git --exclude=log --tag-relative=yes -f .tags . $(bundle list --paths)<CR>
+map <leader>co mmgg"+yG`m
+map <leader>' cs"'
+map <leader>" cs'"
+" map <Leader>o :w<cr>:call RunNearestSpec()<CR>
+
+" fzf file fuzzy search
+nnoremap <C-p> :FZF<CR>
+
+" ALE Asynchronous Lint Engine Config
+let g:ale_sign_column_always = 1
+let g:ale_linters = {
+\   'javascript': ['standard'],
+\}
+let g:ale_fixers = {'javascript': ['standard']}
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+
+" lint after 1000ms after changes are made both on insert mode and normal mode
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 1000
+
+" use nice symbols for errors and warnings
+" let g:ale_sign_error = '✗\ '
+" let g:ale_sign_warning = '⚠\ '
+
+" fixer configurations
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+" GitGutter Config
+if exists('&signcolumn')
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
+let g:gitgutter_highlight_lines = 0 " don't highlight full lines, it messes with syntax highlighting
+
+" Line Length Guide
+set textwidth=80
+set colorcolumn=+1
+
+
+" No local swp and ~ files
+set directory=/tmp
+
+" Spellcheck on by default for markdown
+autocmd BufRead,BufNewFile *md setlocal spell
+
+
