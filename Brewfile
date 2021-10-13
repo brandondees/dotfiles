@@ -46,6 +46,7 @@ cask "keybase"
 cask "istat-menus" # todo: set up license activation
 cask "font-fira-code"
 cask "font-iosevka-nerd-font"
+cask "font-ibm-plex"
 cask "visual-studio-code"
 cask "insomnia"
 # cask "intellij-idea" # pending: uninstall download version
@@ -70,4 +71,4 @@ mas "Tailscale", id: 1475387142
 mas "Alfred", id: 405843582
 mas "SwordSoft Screenink", id: 556304449
 
-mas "Slack for Desktop", id: 803453959  
+mas "Slack for Desktop", id: 803453959
