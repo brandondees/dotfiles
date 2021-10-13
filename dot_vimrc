@@ -1,4 +1,4 @@
-:set nocompatible " vim, not vi
+scriptencoding 'utf-8'
 
 " turn off mouse mode
 " set mouse=c
@@ -8,11 +8,6 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 filetype plugin indent on
-
-" language specific, too
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
 " live reload files if it changes on disk
 set autoread
@@ -36,11 +31,11 @@ set smartcase
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd mine VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+autocmd mine VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
@@ -52,7 +47,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rktjmp/lush.nvim'
 Plug 'vim-ruby/vim-ruby'
@@ -61,13 +56,13 @@ call plug#end()
 
 " Ruby language features
 " https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
-autocmd FileType ruby compiler ruby
+autocmd mine FileType ruby compiler ruby
 
 " See whitespace
 set list
 
 " custom leader commands
-let mapleader = ","
+let mapleader = ','
 " source vimrc
 map <leader>so :source $MYVIMRC<CR>
 map <leader>vr :split $MYVIMRC<CR>
@@ -84,6 +79,7 @@ map <leader>" cs'"
 nnoremap <C-p> :FZF<CR>
 
 " ALE Asynchronous Lint Engine Config
+set omnifunc=ale#completion#OmniFunc
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
 \   'javascript': ['standard'],
@@ -122,4 +118,4 @@ set colorcolumn=+1
 set directory=/tmp
 
 " Spellcheck on by default for markdown
-autocmd BufRead,BufNewFile *md setlocal spell
+autocmd mine BufRead,BufNewFile *md setlocal spell
