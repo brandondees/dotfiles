@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+puts "#{__FILE__} loaded..."
+load "#{File.dirname(__FILE__)}/.railsrc" && (puts '.railsrc loaded') if ENV['RAILS_ENV']
+
+def sql_out
+  ActiveRecord::Base.logger = Logger.new($stdout)
+end
