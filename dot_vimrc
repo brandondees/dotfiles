@@ -31,13 +31,18 @@ set smartcase
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd mine VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup plug
+    au!
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup END
 endif
 
 " Run PlugInstall if there are missing plugins
-autocmd mine VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
+augroup plug
+  autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+    \| endif
+augroup END
 
 call plug#begin(data_dir . 'plugged')
 
@@ -56,7 +61,10 @@ call plug#end()
 
 " Ruby language features
 " https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
-autocmd mine FileType ruby compiler ruby
+augroup mine
+  au!
+  autocmd FileType ruby compiler ruby
+augroup END
 
 " See whitespace
 set list
@@ -118,4 +126,6 @@ set colorcolumn=+1
 set directory=/tmp
 
 " Spellcheck on by default for markdown
-autocmd mine BufRead,BufNewFile *md setlocal spell
+augroup mine
+  autocmd BufRead,BufNewFile *md setlocal spell
+augroup END
