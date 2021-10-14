@@ -22,6 +22,7 @@ brew "espanso"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 brew "tmux"
+brew "tldr"
 
 brew "watch"
 brew "tree"
