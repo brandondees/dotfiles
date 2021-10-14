@@ -81,7 +81,7 @@ plugins=(
   autojump
   asdf
   brew
-  bundler
+  # bundler
   direnv
   fzf
   git
@@ -90,9 +90,9 @@ plugins=(
   heroku
   keychain
   osx
-  rake
+  # rake
   ripgrep
-  ruby
+  # ruby
   ssh-agent
   terraform
   thefuck
