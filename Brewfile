@@ -24,6 +24,7 @@ brew "zsh-syntax-highlighting"
 brew "tmux"
 brew "tldr"
 
+brew "bat"
 brew "watch"
 brew "tree"
 brew "flyway"
