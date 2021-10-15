@@ -2,3 +2,5 @@
   name = {{ .name }}
   email = {{ .email }}
   token = {{ .github_token }}
+[alias]
+  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/master && git push'
