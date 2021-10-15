@@ -46,3 +46,7 @@ alias writemode-resume="writemode-enter-workdir && writemode-edit-latest-file"
 function dotfile-edit {
  chezmoi edit --apply "$@"
 }
+
+# Bat is a cat replacement with syntax highlighting and other niceties
+# TODO: detect if bat is installed before defining this one
+alias cat="bat --theme=OneHalfDark"
