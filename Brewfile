@@ -23,6 +23,7 @@ brew "zsh"
 brew "zsh-syntax-highlighting"
 brew "tmux"
 brew "tldr"
+brew "jq"
 
 brew "bat"
 brew "watch"
