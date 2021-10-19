@@ -4,3 +4,9 @@
   token = {{ .github_token }}
 [alias]
   freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/master && git push'
+[pull]
+  rebase = true
+[fetch]
+  prune = true
+[diff]
+  colorMoved = zebra
