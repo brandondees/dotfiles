@@ -90,9 +90,11 @@ nnoremap <C-p> :FZF<CR>
 set omnifunc=ale#completion#OmniFunc
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
-\   'javascript': ['standard'],
+\   'javascript': ['flow-language-server', 'standard'],
 \}
-let g:ale_fixers = {'javascript': ['standard']}
+let g:ale_fixers = {
+\   'javascript': ['flow-language-server-', 'standard'],
+\}
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
