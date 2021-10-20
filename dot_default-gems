@@ -26,5 +26,6 @@ rubycritic
 ruby-debug-ide
 ruby-lint
 rufo
+solargraph
 tmuxinator
 webdrivers
