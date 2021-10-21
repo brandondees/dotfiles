@@ -1,5 +1,6 @@
 express
 neovim
+pnpm
 pug
 ramda
 request
