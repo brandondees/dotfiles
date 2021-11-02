@@ -32,6 +32,7 @@ brew "tree"
 brew "flyway"
 brew "rabbitmq"
 brew "memcached"
+brew "mysql"
 brew "zopfli"
 
 brew "cask"
