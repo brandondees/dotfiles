@@ -24,6 +24,7 @@ brew "zsh-syntax-highlighting"
 brew "tmux"
 brew "tldr"
 brew "jq"
+brew "ctags"
 brew "nativefier"
 
 brew "bat"
