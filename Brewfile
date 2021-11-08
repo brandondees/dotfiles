@@ -67,6 +67,7 @@ cask "insomnia"
 # cask "intellij-idea" # pending: uninstall download version
 cask "dotnet-sdk"
 cask "discord"
+cask "obsidian"
 
 brew "mas"
 
