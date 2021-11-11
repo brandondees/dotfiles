@@ -74,6 +74,7 @@ brew "mas"
 mas "Amphetamine", id: 937984704
 mas "1Password 7 - Password Manager", id: 1333542190
 cask "1password-cli"
+mas "AudioSwitcher", id: 561712678
 
 mas "XCode", id: 497799835
 mas "Postico", id: 1031280567
