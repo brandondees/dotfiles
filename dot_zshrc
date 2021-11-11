@@ -97,6 +97,7 @@ plugins=(
   terraform
   thefuck
   vi-mode
+  yarn
   zsh-syntax-highlighting # must be last plugin
 )
 
