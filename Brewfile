@@ -65,6 +65,7 @@ cask "font-iosevka-nerd-font"
 cask "font-ibm-plex"
 cask "visual-studio-code"
 cask "insomnia"
+cask "postman"
 # cask "intellij-idea" # pending: uninstall download version
 cask "dotnet-sdk"
 cask "discord"
