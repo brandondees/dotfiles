@@ -53,6 +53,7 @@ cask "vlc"
 cask "obs"
 cask "tuple"
 cask "cakebrew"
+cask "cheatsheet"
 cask "docker"
 cask "postgres-unofficial" # postgresapp.com
 cask "jpadilla-redis"
