@@ -50,3 +50,6 @@ function dotfile-edit {
 # Bat is a cat replacement with syntax highlighting and other niceties
 # TODO: detect if bat is installed before defining this one
 alias cat="bat --theme=OneHalfDark"
+
+# Watch
+alias watch="FORCE_COLOR=true watch --color"
