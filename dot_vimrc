@@ -53,11 +53,23 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'editorconfig/editorconfig-vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'rktjmp/lush.nvim'
 Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
+
+" Colorscheme / Theme
+set t_Co=256
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+set cursorline
+colorscheme onehalfdark
 
 " Ruby language features
 " https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
@@ -73,7 +85,8 @@ set list
 let mapleader = ','
 " source vimrc
 map <leader>so :source $MYVIMRC<CR>
-map <leader>vr :split $MYVIMRC<CR>
+map <leader>vr :split ~/.vimrc<CR>
+map <leader>vn :split $MYVIMRC<CR>
 map <Esc><Esc> :noh<CR>:set nopaste<CR>
 map <leader>r :!resize<CR><CR>
 map <leader>f :set paste<CR>mmggi# frozen_string_literal: true<CR><CR><Esc>`m:set nopaste<CR>
@@ -102,6 +115,7 @@ let g:ale_linters.javascript = [
 \    'flow-language-server'
 \]
 
+let g:ale_fixers = {}
 let g:ale_fixers.typescript = [
 \  'prettier',
 \  'eslint',
@@ -133,6 +147,36 @@ let g:ale_linters_explicit = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
+
+" COC completion servers
+" ref https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+let g:coc_global_extensions = [
+\ 'coc-tsserver',
+\]
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  silent call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " GitGutter Config
 if exists('&signcolumn')
