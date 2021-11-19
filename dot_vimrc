@@ -17,7 +17,7 @@ nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 
 " relative line numbers
-set relativenumber
+" set relativenumber
 set number
 
 " search options
@@ -90,18 +90,40 @@ nnoremap <silent> <Leader>f :Rg<CR>
 " ALE Asynchronous Lint Engine Config
 set omnifunc=ale#completion#OmniFunc
 let g:ale_sign_column_always = 1
-let g:ale_linters = {
-\   'javascript': ['tsserver', 'flow-language-server', 'standard'],
-\}
-let g:ale_fixers = {
-\   'javascript': ['tsserver', 'flow-language-server-', 'standard'],
-\}
+let g:ale_linters = {}
+let g:ale_linters.typescript = [
+\  'prettier',
+\  'eslint',
+\  'tsserver',
+\]
+let g:ale_linters.javascript = [
+\    'prettier',
+\    'eslint',
+\    'flow-language-server'
+\]
+
+let g:ale_fixers.typescript = [
+\  'prettier',
+\  'eslint',
+\  'tsserver',
+\]
+let g:ale_fixers.javascript = [
+\  'prettier',
+\  'eslint',
+\  'flow-language-server'
+\]
+
+let g:ale_typescript_prettier_use_local_config = 1
+
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
 " lint after 1000ms after changes are made both on insert mode and normal mode
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_delay = 1000
+
+" use explicitly configured linters, not all possible linters
+let g:ale_linters_explicit = 1
 
 " use nice symbols for errors and warnings
 " let g:ale_sign_error = '✗\ '
