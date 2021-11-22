@@ -2,12 +2,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:/Applications/Postgres.app/Contents/Versions/12/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
-# mkdir -p .git/safe in the root of repositories you trust
-if [[ -d "$PWD/.git/safe" ]]; then
-  # We're in a trusted project directory so update our local bin path
-  export PATH=".git/safe/../../bin:$PATH"
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/dees/.oh-my-zsh"
 
@@ -127,6 +121,11 @@ fi
 # Use asdf-vm
 . /Users/dees/.asdf/asdf.sh
 
+# mkdir -p .git/safe in the root of repositories you trust
+if [[ -d "$PWD/.git/safe" ]]; then
+  # We're in a trusted project directory so update our local bin path
+  export PATH=".git/safe/../../bin:$PATH"
+fi
 
 # TheFuck
 # https://github.com/nvbn/thefuck
