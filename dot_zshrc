@@ -124,7 +124,7 @@ fi
 # mkdir -p .git/safe in the root of repositories you trust
 if [[ -d "$PWD/.git/safe" ]]; then
   # We're in a trusted project directory so update our local bin path
-  export PATH=".git/safe/../../bin:$PATH"
+  export PATH="$PWD/.git/safe/../../bin:$PATH"
 fi
 
 # TheFuck
