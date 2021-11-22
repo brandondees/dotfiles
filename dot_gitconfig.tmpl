@@ -3,7 +3,10 @@
   email = {{ .email }}
   token = {{ .github_token }}
 [alias]
-  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/master && git push'
+  freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase origin/master
+  && git push -f'
+  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/main
+  && git push -f'
 [pull]
   rebase = true
 [fetch]
