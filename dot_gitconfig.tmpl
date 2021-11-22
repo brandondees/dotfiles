@@ -6,10 +6,8 @@
   # Mark a repo as trusted
   trust = "!mkdir -p .git/safe"
 
-  freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase origin/master
-  && git push -f'
-  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/main
-  && git push -f'
+  freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase origin/master && git push -f'
+  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/main && git push -f'
 [pull]
   rebase = true
 [fetch]
