@@ -150,6 +150,9 @@ let g:ale_fixers = {
 
 " COC completion servers
 " ref https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+
+set updatetime=300
+
 let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \]
