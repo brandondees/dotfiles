@@ -6,4 +6,5 @@ ramda
 request
 tldr
 typescript
+vim-language-server
 pure-prompt
