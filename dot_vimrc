@@ -71,6 +71,15 @@ endif
 set cursorline
 colorscheme onehalfdark
 
+augroup coc
+  highlight NormalFloat ctermbg=Black ctermfg=White
+  " hi Pmenu ctermfg=White ctermbg=Black
+  " hi PmenuSel ctermfg=White ctermbg=Black
+  " hi FgCocInfoFloatBgCocFloating  ctermfg=White ctermbg=Black guifg=White guibg=Black
+  " hi FgCocErrorFloatBgCocFloating ctermfg=White ctermbg=Black guifg=White guibg=Black
+  " hi FgCocWarningFloatBgCocFloating ctermfg=White ctermbg=Black guifg=White guibg=Black
+augroup END
+
 " Ruby language features
 " https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
 augroup mine
@@ -101,7 +110,7 @@ nnoremap <C-p> :FZF<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 
 " ALE Asynchronous Lint Engine Config
-set omnifunc=ale#completion#OmniFunc
+" set omnifunc=ale#completion#OmniFunc
 let g:ale_sign_column_always = 1
 let g:ale_linters = {}
 let g:ale_linters.typescript = [
@@ -152,11 +161,12 @@ let g:ale_fixers = {
 " ref https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 
 " Give more space for displaying messages.
-set cmdheight=3
+" set cmdheight=5
+set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=100
+set updatetime=50
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -202,7 +212,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
+    silent call CocActionAsync('doHover')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
@@ -215,8 +225,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fmt  <Plug>(coc-format-selected)
+nmap <leader>fmt  <Plug>(coc-format-selected)
 
 augroup cocformatting
   autocmd!
@@ -254,7 +264,11 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+set shortmess+=a
+let g:ale_disable_lsp = 1
+
 
 let g:coc_global_extensions = [
 \ 'coc-tsserver',
@@ -288,7 +302,12 @@ let g:markdown_fenced_languages = [
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline=
+" set statusline+=%f
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" set statusline+=%f%r
+set statusline+=%{coc#status()}
+set statusline+=%{get(b:,'coc_current_function','')}
 
 " GitGutter Config
 if exists('&signcolumn')
