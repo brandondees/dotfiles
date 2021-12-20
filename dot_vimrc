@@ -58,6 +58,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'rktjmp/lush.nvim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'mgedmin/test-on-save.vim'
 
 call plug#end()
 
@@ -143,7 +144,8 @@ let g:ale_fix_on_save = 1
 
 " lint after 1000ms after changes are made both on insert mode and normal mode
 let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_delay = 1000
+" let g:ale_lint_delay = 1000
+let g:ale_lint_delay = 100
 
 " use explicitly configured linters, not all possible linters
 let g:ale_linters_explicit = 1
@@ -308,6 +310,9 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " set statusline+=%f%r
 set statusline+=%{coc#status()}
 set statusline+=%{get(b:,'coc_current_function','')}
+
+" https://vimawesome.com/plugin/test-on-save-vim
+set laststatus=2
 
 " GitGutter Config
 if exists('&signcolumn')
