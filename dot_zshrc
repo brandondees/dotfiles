@@ -86,7 +86,7 @@ plugins=(
   gpg-agent
   heroku
   keychain
-  osx
+  macos
   # rake
   ripgrep
   # ruby
