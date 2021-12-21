@@ -45,6 +45,7 @@ augroup plug
 augroup END
 
 call plug#begin(data_dir . 'plugged')
+" #plugins
 
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -52,6 +53,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch' " Common shell helpers like mkdir, rename, sudo write, etc
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'editorconfig/editorconfig-vim'
@@ -164,7 +166,7 @@ let g:ale_fixers = {
 
 " Give more space for displaying messages.
 " set cmdheight=5
-set cmdheight=2
+set cmdheight=4
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
