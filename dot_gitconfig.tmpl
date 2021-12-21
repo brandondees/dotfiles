@@ -8,6 +8,7 @@
 
   freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase origin/master && git push -f'
   freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/main && git push -f'
+  wip-edit = !sh -c 'vim -p $(git diff --name-only)'
 [pull]
   rebase = true
 [fetch]
