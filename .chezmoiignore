@@ -25,6 +25,8 @@ Sync
 
 *_history
 
+.oh-my-zsh/cache/
+
 # Keep .keep
 !**.keep
 
