@@ -39,6 +39,7 @@ brew "zopfli"
 
 brew "cask"
 
+cask "chronycontrol" # https://netfuture.ch/2021/12/transparent-trustworthy-time-with-ntp-and-nts/
 cask "kitty"
 cask "alacritty"
 cask "barrier"
@@ -74,6 +75,7 @@ cask "postman"
 cask "dotnet-sdk"
 cask "discord"
 cask "obsidian"
+cask "miro"
 
 brew "mas"
 
