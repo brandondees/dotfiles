@@ -1,0 +1,4 @@
+HOMEBREW_NO_ANALYTICS=1
+HEROKU_API_KEY=''
+FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+LESS=$LESS" --no-init --quit-if-one-screen"
