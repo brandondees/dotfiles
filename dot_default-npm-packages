@@ -1,8 +1,10 @@
+yarn
 express
 neovim
 pnpm
 pug
 ramda
+lodash
 request
 tldr
 typescript
