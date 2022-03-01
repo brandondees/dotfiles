@@ -86,11 +86,13 @@ mas "AudioSwitcher", id: 561712678
 
 mas "XCode", id: 497799835
 mas "Postico", id: 1031280567
+mas "Sequel Ace", id: 1518036000
 mas "Red - UI for Redis", id: 1491764008
 
 mas "Bitwarden", id: 1352778147
 brew "bitwarden-cli"
 
+mas "Recess", id: 621451282
 mas "EasyRes", id: 688211836
 mas "Tailscale", id: 1475387142
 mas "Alfred", id: 405843582
