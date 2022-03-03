@@ -76,6 +76,8 @@ cask "dotnet-sdk"
 cask "discord"
 cask "obsidian"
 cask "miro"
+cask "nomachine"
+cask "graphiql"
 
 brew "mas"
 
