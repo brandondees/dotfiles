@@ -53,15 +53,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch' " Common shell helpers like mkdir, rename, sudo write, etc
 Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'branch': 'release'}
 Plug 'editorconfig/editorconfig-vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'rktjmp/lush.nvim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mgedmin/test-on-save.vim'
+
+" Plug 'reedes/vim-colors-pencil'
 
 call plug#end()
 
@@ -73,7 +76,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 set cursorline
+colorscheme desert
 colorscheme onehalfdark
+" colorscheme pencil
 
 augroup coc
   highlight NormalFloat ctermbg=Black ctermfg=White
