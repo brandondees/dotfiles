@@ -1,3 +1,5 @@
+[init]
+  defaultBranch = main
 [user]
   name = {{ .name }}
   email = {{ .email }}
@@ -6,9 +8,11 @@
   # Mark a repo as trusted
   trust = "!mkdir -p .git/safe"
 
-  freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase origin/master && git push -f'
-  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase origin/main && git push -f'
+  freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase $UPSTREAM && git push -f'
+  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase $UPSTREAM && git push -f'
+
   wip-edit = !sh -c 'vim -p $(git diff --name-only)'
+  fixup = commit --amend
 [pull]
   rebase = true
 [fetch]
