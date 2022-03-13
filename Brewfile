@@ -30,6 +30,7 @@ brew "nativefier"
 
 brew "bat"
 brew "watch"
+brew "watchexec"
 brew "tree"
 brew "flyway"
 brew "rabbitmq"
