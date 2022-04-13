@@ -2,6 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:/Applications/Postgres.app/Contents/Versions/12/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
+
+
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/dees/.oh-my-zsh"
 
@@ -10,7 +13,7 @@ export ZSH="/Users/dees/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="amuse"
+# ZSH_THEME="amuse"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -44,7 +47,8 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
+# setopt correct
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -96,6 +100,7 @@ plugins=(
   # ruby
   ssh-agent
   terraform
+  kubectl
   thefuck
   vi-mode
   yarn
@@ -123,7 +128,10 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # Use asdf-vm
-. /Users/dees/.asdf/asdf.sh
+. ~/.asdf/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
+
+
 
 # Trusted local binstub paths
 # see also `git trust` alias in gitconfig
@@ -158,3 +166,6 @@ eval $(thefuck --alias qwer)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . ~/.alias
+
+# Starship prompt https://starship.rs/
+eval "$(starship init zsh)"
