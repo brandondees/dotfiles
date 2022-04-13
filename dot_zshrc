@@ -104,6 +104,7 @@ plugins=(
   thefuck
   vi-mode
   yarn
+  zsh-autosuggestions
   zsh-syntax-highlighting # must be last plugin
 )
 
