@@ -37,6 +37,7 @@ brew "curl"
 brew "wget"
 
 brew "bat"
+brew "mdcat"
 brew "watch"
 brew "watchexec"
 brew "tree"
