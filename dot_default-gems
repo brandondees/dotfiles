@@ -18,6 +18,7 @@ pry-doc
 pry-remote
 pry-byebug
 rack
+rails
 rcodetools
 reek
 rubocop
