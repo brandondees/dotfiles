@@ -12,3 +12,5 @@ vim-language-server
 css-language-server
 graphql-language-service-cli
 pure-prompt
+esbuild
+rollup
