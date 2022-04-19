@@ -4,6 +4,8 @@
   name = {{ .name }}
   email = {{ .email }}
   token = {{ .github_token }}
+[core]
+  excludesfile = $HOME/.gitignore
 [alias]
   # Mark a repo as trusted
   trust = "!mkdir -p .git/safe"
