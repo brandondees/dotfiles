@@ -352,3 +352,14 @@ set directory=/tmp
 augroup mine
   autocmd BufRead,BufNewFile *md setlocal spell
 augroup END
+
+" Use project-local vim config overrides where present
+if filereadable(expand(".git/safe/../../.vimrc.local"))
+  source ./.vimrc.local
+  set secure " disable unsafe commands in local .vimrc files
+endif
+
+if filereadable(expand(".git/safe/../../.nvimrc"))
+  set exrc " enable per-directory .vimrc / .nvimrc / .exrc files
+  source ./.nvimrc
+endif
