@@ -1,0 +1,88 @@
+
+# https://starship.rs/presets/nerd-font.html
+[aws]
+symbol = " "
+
+[gcloud]
+symbol = " "
+format = ' [$symbol$account(@$domain)(\($region\))]($style)'
+
+[buf]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+read_only = " "
+
+[directory.substitutions]
+"Artium Dropbox" = "Artium  "
+"Dropbox" = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[ruby]
+symbol = " "
+detect_extensions = ["rb", "erb", "ru"]
+format = "[$symbol($version)]($style) "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_metrics]
+disabled=true
+only_nonzero_diffs=true
+format = '[+$added]($added_style)/[−$deleted]($deleted_style) '
+
+[git_commit]
+disabled = false
+only_detached = false
+tag_disabled = false
+format = "[$tag]($style) "
+tag_symbol = " "
+
+[golang]
+symbol = " "
+format = " [$symbol($version )]($style)"
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+format = "[$symbol($version)]($style) "
+
+[package]
+symbol = " "
+
+[rust]
+symbol = " "
