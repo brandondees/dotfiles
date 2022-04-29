@@ -10,11 +10,12 @@
   # Mark a repo as trusted
   trust = "!mkdir -p .git/safe"
 
-  freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase $UPSTREAM && git push -f'
-  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase $UPSTREAM && git push -f'
+  freshen-pushed-branch-old = !sh -c 'git fetch origin && git rebase $UPSTREAM && git push --force-with-lease'
+  freshen-pushed-branch = !sh -c 'git fetch origin && git rebase $UPSTREAM && git push --force-with-lease'
 
   wip-edit = !sh -c 'vim -p $(git diff --name-only)'
   fixup = commit --fixup HEAD
+  fp = push --force-with-lease
 [pull]
   rebase = true
 [fetch]
