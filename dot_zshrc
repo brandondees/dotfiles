@@ -101,6 +101,8 @@ plugins=(
   ssh-agent
   terraform
   kubectl
+  docker
+  docker-compose
   thefuck
   vi-mode
   yarn
