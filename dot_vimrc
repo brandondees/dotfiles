@@ -13,8 +13,8 @@ filetype plugin indent on
 set autoread
 
 " word wrap more excellently
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
+" nnoremap <expr> j v:count ? 'j' : 'gj'
+" nnoremap <expr> k v:count ? 'k' : 'gk'
 
 " relative line numbers
 " set relativenumber
@@ -59,12 +59,15 @@ Plug 'tpope/vim-eunuch' " Common shell helpers like mkdir, rename, sudo write, e
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'branch': 'release'}
 Plug 'editorconfig/editorconfig-vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'rktjmp/lush.nvim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mgedmin/test-on-save.vim'
 
-" Plug 'reedes/vim-colors-pencil'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'rktjmp/lush.nvim'
+Plug 'tjdevries/colorbuddy.nvim'
+Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'}
+
+Plug 'preservim/vim-colors-pencil'
 
 call plug#end()
 
@@ -75,10 +78,22 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+let &t_ut=''
+
 set cursorline
-colorscheme desert
-colorscheme onehalfdark
+colorscheme
+" colorscheme desert
+" colorscheme onehalfdark
 " colorscheme pencil
+let g:pencil_terminal_italics = 1
+let g:pencil_gutter_color = 1
+
+" colorscheme modus-vivendi
+let g:modus_faint_syntax=1
+let g:modus_moody_enable=1
+let g:modus_yellow_comments=1
+let g:modus_cursorline_intense=1
+let g:modus_termtrans_enable=1
 
 augroup coc
   highlight NormalFloat ctermbg=Black ctermfg=White
@@ -344,13 +359,16 @@ let g:gitgutter_highlight_lines = 0 " don't highlight full lines, it messes with
 set textwidth=80
 set colorcolumn=+1
 
-
 " No local swp and ~ files
 set directory=/tmp
 
 " Spellcheck on by default for markdown
 augroup mine
   autocmd BufRead,BufNewFile *md setlocal spell
+augroup END
+" Syntax concealment on by default for markdown
+augroup mine
+  autocmd BufRead,BufNewFile *md set conceallevel=1
 augroup END
 
 " Use project-local vim config overrides where present
