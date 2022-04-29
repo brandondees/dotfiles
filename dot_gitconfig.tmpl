@@ -14,7 +14,7 @@
   freshen-pushed-branch = !sh -c 'git fetch origin && git rebase $UPSTREAM && git push -f'
 
   wip-edit = !sh -c 'vim -p $(git diff --name-only)'
-  fixup = commit --amend
+  fixup = commit --fixup HEAD
 [pull]
   rebase = true
 [fetch]
