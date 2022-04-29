@@ -42,6 +42,7 @@ brew "watch"
 brew "watchexec"
 brew "tree"
 brew "zopfli"
+brew "graphicsmagick"
 
 brew "mysql"
 brew "pack"
