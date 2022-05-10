@@ -53,6 +53,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch' " Common shell helpers like mkdir, rename, sudo write, etc
@@ -62,12 +63,14 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mgedmin/test-on-save.vim'
 
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+" Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'rktjmp/lush.nvim'
 Plug 'tjdevries/colorbuddy.nvim'
-Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'}
+" Plug 'flazz/vim-colorschemes'
+" Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'}
+Plug 'sainnhe/everforest'
 
-Plug 'preservim/vim-colors-pencil'
+" Plug 'preservim/vim-colors-pencil'
 
 call plug#end()
 
@@ -85,6 +88,7 @@ colorscheme
 " colorscheme desert
 " colorscheme onehalfdark
 " colorscheme pencil
+colorscheme everforest
 let g:pencil_terminal_italics = 1
 let g:pencil_gutter_color = 1
 
@@ -144,6 +148,13 @@ nnoremap <silent> <Leader>f :Rg<CR>
 " ALE Asynchronous Lint Engine Config
 " set omnifunc=ale#completion#OmniFunc
 let g:ale_sign_column_always = 1
+
+" fixer configurations
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+" linter configurations
 let g:ale_linters = {}
 let g:ale_linters.typescript = [
 \  'prettier',
@@ -155,6 +166,24 @@ let g:ale_linters.javascript = [
 \    'eslint',
 \    'flow-language-server'
 \]
+
+if filereadable(expand(".rubocop.yml"))
+let g:ale_linters.ruby = [
+\    'rubocop',
+\]
+let g:ale_fixers.ruby = [
+\    'rubocop',
+\    'solargraph'
+\]
+else
+let g:ale_linters.ruby = [
+\    'standardrb',
+\]
+let g:ale_fixers.ruby = [
+\    'standardrb',
+\    'solargraph'
+\]
+endif
 
 let g:ale_fixers = {}
 let g:ale_fixers.typescript = [
@@ -184,11 +213,6 @@ let g:ale_linters_explicit = 1
 " use nice symbols for errors and warnings
 " let g:ale_sign_error = '✗\ '
 " let g:ale_sign_warning = '⚠\ '
-
-" fixer configurations
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
 
 " COC completion servers
 " ref https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
@@ -377,7 +401,7 @@ if filereadable(expand(".git/safe/../../.vimrc.local"))
   set secure " disable unsafe commands in local .vimrc files
 endif
 
-if filereadable(expand(".git/safe/../../.nvimrc"))
-  set exrc " enable per-directory .vimrc / .nvimrc / .exrc files
-  source ./.nvimrc
-endif
+" if filereadable(expand(".git/safe/../../.nvimrc"))
+"   set exrc " enable per-directory .vimrc / .nvimrc / .exrc files
+"   source ./.nvimrc
+" endif
