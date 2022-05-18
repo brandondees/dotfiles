@@ -53,6 +53,7 @@ brew "memcached"
 brew "prometheus"
 brew "grafana"
 brew "helm"
+brew "awscli"
 
 brew "cask"
 
