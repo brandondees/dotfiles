@@ -166,6 +166,10 @@ let g:ale_linters.javascript = [
 \    'eslint',
 \    'flow-language-server'
 \]
+let g:ale_linters.yaml = [
+\    'yamllint',
+\    'yaml-language-server'
+\]
 
 if filereadable(expand(".rubocop.yml"))
 let g:ale_linters.ruby = [
