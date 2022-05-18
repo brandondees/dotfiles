@@ -83,7 +83,6 @@ setopt EXTENDED_HISTORY
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
 plugins=(
-  autojump
   asdf
   brew
   # bundler
@@ -172,3 +171,9 @@ eval $(thefuck --alias qwer)
 
 # Starship prompt https://starship.rs/
 eval "$(starship init zsh)"
+
+compinit
+
+# https://github.com/ajeetdsouza/zoxide quick directory navigation
+eval "$(zoxide init zsh)"
+
