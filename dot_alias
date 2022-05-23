@@ -1,5 +1,11 @@
 # Aliases
 
+# lsd, fancy `ls` replacement
+# https://github.com/Peltoche/lsd
+if [[ -n 'which lsd' ]]; then
+  alias ls='lsd -F'
+fi
+
 # Git Aliases
 alias gfc='git fetch upstream && git checkout upstream/master'
 alias gfr='git fetch upstream && git rebase -i upstream/master'
@@ -23,7 +29,7 @@ alias vi='vim'
 alias vim='nvim'
 alias edit=$EDITOR
 alias la='ls -AF'
-alias ls='ls -F'
+# alias ls='ls -F'
 alias ding="echo $'\a'; paplay --volume 50000 /usr/share/sounds/freedesktop/stereo/complete.oga &"
 alias servefiles="python3 -m http.server"
 
