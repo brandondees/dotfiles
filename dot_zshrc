@@ -102,6 +102,7 @@ plugins=(
   kubectl
   docker
   docker-compose
+  aws
   thefuck
   vi-mode
   yarn
@@ -171,8 +172,6 @@ eval $(thefuck --alias qwer)
 
 # Starship prompt https://starship.rs/
 eval "$(starship init zsh)"
-
-compinit
 
 # https://github.com/ajeetdsouza/zoxide quick directory navigation
 eval "$(zoxide init zsh)"
