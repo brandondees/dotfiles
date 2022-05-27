@@ -7,6 +7,10 @@ symbol = " "
 symbol = " "
 format = ' [$symbol$account(@$domain)(\($region\))]($style)'
 
+[terraform]
+symbol = "行"
+format = "[$symbol$version $workspace]($style) "
+
 [buf]
 symbol = " "
 
