@@ -59,3 +59,6 @@ alias cat="bat --theme=OneHalfDark"
 
 # Watch
 alias watch="FORCE_COLOR=true watch --color"
+
+# Kitty icat image viewer
+alias showimg="kitty +kitten icat $1"
