@@ -71,6 +71,7 @@ cask "kitty"
 cask "alacritty"
 cask "barrier"
 cask "amethyst"
+cask "raycast"
 cask "kindavim"
 cask "keycastr"
 cask "google-chrome"
@@ -131,7 +132,7 @@ brew "bitwarden-cli"
 mas "Recess", id: 621451282
 mas "EasyRes", id: 688211836
 mas "Tailscale", id: 1475387142
-mas "Alfred", id: 405843582
+# mas "Alfred", id: 405843582
 mas "SwordSoft Screenink", id: 556304449
 
 mas "Slack for Desktop", id: 803453959
