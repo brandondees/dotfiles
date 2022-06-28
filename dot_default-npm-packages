@@ -9,8 +9,10 @@ request
 tldr
 typescript
 vim-language-server
+yaml-language-server
 css-language-server
 graphql-language-service-cli
+vim-language-server
 pure-prompt
 esbuild
 rollup
