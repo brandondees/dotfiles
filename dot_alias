@@ -3,7 +3,7 @@
 # lsd, fancy `ls` replacement
 # https://github.com/Peltoche/lsd
 if [[ -n 'which lsd' ]]; then
-  alias ls='lsd -F'
+  alias ls='lsd'
 fi
 
 # Git Aliases
