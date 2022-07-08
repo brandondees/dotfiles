@@ -66,6 +66,7 @@ brew "grafana"
 brew "helm"
 brew "terraform-ls"
 brew "awscli"
+brew "exercism"
 
 brew "cask"
 
@@ -93,6 +94,7 @@ cask "tuple"
 cask "cakebrew"
 cask "cheatsheet"
 cask "docker"
+cask "lens"
 cask "postgres-unofficial" # postgresapp.com
 cask "jpadilla-redis"
 cask "dropbox"
