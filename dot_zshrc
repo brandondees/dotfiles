@@ -89,12 +89,18 @@ plugins=(
   direnv
   fzf
   git
+  git-auto-fetch
   git-prompt
+  gh
   golang
   gpg-agent
   heroku
+  helm
   keychain
+  lein
+  # lol
   macos
+  # magic-enter
   # rake
   ripgrep
   # ruby

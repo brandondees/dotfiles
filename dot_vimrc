@@ -60,7 +60,7 @@ Plug 'tpope/vim-eunuch' " Common shell helpers like mkdir, rename, sudo write, e
 " Plug 'dense-analysis/ale'
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'branch': 'release'}
 " Plug 'neomake/neomake'
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mgedmin/test-on-save.vim'
 
@@ -133,6 +133,7 @@ set list
 
 " custom leader commands
 let mapleader = ','
+let maplocalleader = ','
 map <leader>vr :tabedit ~/.vimrc<CR>
 map <leader>vn :tabedit $MYVIMRC<CR>
 map <leader>vl :source $MYVIMRC<CR>
@@ -147,7 +148,7 @@ map <leader>co mmgg"+yG`m
 " map <Leader>o :w<cr>:call RunNearestSpec()<CR>
 " fzf file fuzzy search
 nnoremap <C-p> :FZF<CR>
-nnoremap <silent> <Leader>f :Rg<CR>
+" nnoremap <silent> <Leader>f :Rg<CR>
 
 " ALE Asynchronous Lint Engine Config
 " set omnifunc=ale#completion#OmniFunc
@@ -227,7 +228,7 @@ nnoremap <silent> <Leader>f :Rg<CR>
 
 " Give more space for displaying messages.
 " set cmdheight=5
-set cmdheight=2
+" set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
