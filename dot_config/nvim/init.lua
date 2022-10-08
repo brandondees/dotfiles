@@ -36,6 +36,9 @@ require("packer").startup(function(use)
 
   use('gpanders/editorconfig.nvim')
 
+  use { 'mfussenegger/nvim-dap' }
+  use { 'nvim-telescope/telescope-dap.nvim' }
+
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -82,7 +85,7 @@ require("packer").startup(function(use)
   use({
     "nvim-orgmode/orgmode",
     config = function()
-      require("orgmode").setup({})
+      require("orgmode").setup_ts_grammar {}
     end,
   })
 
@@ -128,6 +131,14 @@ require("packer").startup(function(use)
   use('fenetikm/falcon')
   use("rktjmp/lush.nvim")
   use("sainnhe/everforest")
+  -- use { 'embark-theme/vim',
+  --   as = 'embark',
+  --   config = function()
+  --     vim.cmd('colorscheme embark')
+  --     vim.cmd('let g:embark_terminal_italics = 1')
+  --   end
+  -- }
+
 
 
   -- Automatically set up your configuration after cloning packer.nvim
@@ -168,6 +179,8 @@ vim.o.termguicolors = true
 -- vim.cmd("colorscheme everforest")
 vim.cmd("colorscheme falcon")
 
+
+
 -- Telescope
 require("telescope").setup({})
 
@@ -181,6 +194,7 @@ wk.register({
   -- ["<leader>f"] = { name = "+files" },
   ["<leader>s"] = { name = "+search" },
   ["<leader>r"] = { name = "+refactor" },
+  ["<leader>d"] = { name = "+debugging" },
   ["g"] = { name = "+goto" },
 })
 
@@ -209,10 +223,15 @@ vim.keymap.set("i", "<C-e>", require("telescope.builtin").symbols, { desc = '"sy
 vim.keymap.set("n", "<C-e>", require("telescope.builtin").symbols, { desc = '"symbols" / emoji' })
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "diagnostic open float" })
+vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "diagnostic open float" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "diagnostic goto prev" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "diagnostic goto next" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "show diagnostic list" })
+
+
+-- Debugger / Debugging / DAP
+-- https://alpha2phi.medium.com/neovim-dap-enhanced-ebc730ff498b
+require('./dbg')
 
 -- OrgMode https://github.com/nvim-orgmode/orgmode
 require("orgmode").setup_ts_grammar()
@@ -355,15 +374,15 @@ local on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols,
     { desc = "document symbols", buffer = opts.buffer })
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.formatting_sync, {})
+  vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.format, {})
 
   lsp_format.on_attach(client)
 
   -- Autoformat when applicable
   -- https://github.com/VapourNvim/VapourNvim/blob/main/lua/null-ls-config/init.lua
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
       vim.api.nvim_exec([[
       augroup document_highlight
         autocmd! * <buffer>
@@ -456,6 +475,14 @@ require("lspconfig").sumneko_lua.setup({
 
 -- https://github.com/jose-elias-alvarez/typescript.nvim
 require("typescript").setup {}
+
+require 'lspconfig'.stylelint_lsp.setup {
+  settings = {
+    autoFixOnFormat = true,
+    autoFixOnSave = true,
+    validateOnType = true,
+  }
+}
 
 -- https://github.com/windwp/nvim-autopairs
 -- based on https://github.com/luan/nvim/blob/main/lua/plugins/autopairs.lua
