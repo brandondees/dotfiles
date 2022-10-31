@@ -85,7 +85,7 @@ require("packer").startup(function(use)
   use({
     "nvim-orgmode/orgmode",
     config = function()
-      require("orgmode").setup_ts_grammar {}
+      require("orgmode").setup_ts_grammar()
     end,
   })
 
@@ -128,9 +128,16 @@ require("packer").startup(function(use)
   })
 
   -- Colorscheme / Themes
-  use('fenetikm/falcon')
+  -- use('fenetikm/falcon')
   use("rktjmp/lush.nvim")
-  use("sainnhe/everforest")
+  use {
+    "mcchrish/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    requires = "rktjmp/lush.nvim"
+  }
+  -- use("sainnhe/everforest")
   -- use { 'embark-theme/vim',
   --   as = 'embark',
   --   config = function()
@@ -177,7 +184,8 @@ vim.wo.signcolumn = "yes"
 --Set colorscheme
 vim.o.termguicolors = true
 -- vim.cmd("colorscheme everforest")
-vim.cmd("colorscheme falcon")
+-- vim.cmd("colorscheme falcon")
+vim.cmd("colorscheme duckbones")
 
 
 
@@ -402,10 +410,8 @@ vim.cmd("nnoremap <silent> <leader>f :Format<CR>")
 vim.cmd("nnoremap <silent> <leader>F :FormatWrite<CR>")
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 
 -- Enable the following language servers
 local servers = {
@@ -496,7 +502,6 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = 
 local luasnip = require("luasnip")
 
 -- nvim-cmp setup
-local cmp = require("cmp")
 cmp.setup({
   snippet = {
     expand = function(args)
