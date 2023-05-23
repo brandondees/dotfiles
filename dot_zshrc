@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/bin:/Applications/Postgres.app/Contents/Versions/12/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/Applications/Postgres.app/Contents/Versions/12/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 
 
@@ -186,3 +186,8 @@ eval "$(starship init zsh)"
 # https://github.com/ajeetdsouza/zoxide quick directory navigation
 eval "$(zoxide init zsh)"
 
+
+# pnpm
+export PNPM_HOME="/Users/dees/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
