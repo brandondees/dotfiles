@@ -1,0 +1,13 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "buo/cask-upgrade"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/cask-fonts"
+brew "cask"
+brew "flyway"
+brew "mas"
+brew "rabbitmq"
+mas "Alfred", id: 405843582
+mas "Bitwarden", id: 1352778147
+mas "SwordSoft Screenink", id: 556304449
