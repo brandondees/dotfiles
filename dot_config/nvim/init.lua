@@ -11,12 +11,18 @@ vim.cmd("language en_US.UTF-8")
 
 -- Packer auto bootstrapping
 -- https://github.com/wbthomason/packer.nvim#bootstrapping
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_bootstrap = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
-    install_path })
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
+
+local Packer_bootstrap = ensure_packer()
 
 -- load plugins
 -- vim.cmd([[
@@ -82,6 +88,7 @@ require("packer").startup(function(use)
     },
   })
 
+
   use({
     "nvim-orgmode/orgmode",
     config = function()
@@ -92,33 +99,51 @@ require("packer").startup(function(use)
   use({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    'lukas-reineke/lsp-format.nvim',
+    -- 'lukas-reineke/lsp-format.nvim',
 
     "neovim/nvim-lspconfig", -- Configurations for Nvim LSP
     'folke/lsp-colors.nvim',
 
-    'williamboman/nvim-lsp-installer',
+    -- 'williamboman/nvim-lsp-installer',
     'folke/trouble.nvim',
-    'ray-x/lsp_signature.nvim',
-    'jose-elias-alvarez/null-ls.nvim',
+    -- 'ray-x/lsp_signature.nvim',
+    -- 'jose-elias-alvarez/null-ls.nvim',
 
   })
 
-  use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/nvim-cmp") -- Autocompletion plugin
-  use("saadparwaiz1/cmp_luasnip")
-  use("L3MON4D3/LuaSnip") -- Snippets plugin
+  -- use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
+  -- use("hrsh7th/cmp-buffer")
+  -- use("hrsh7th/cmp-path")
+  -- use("hrsh7th/cmp-cmdline")
+  -- use("hrsh7th/nvim-cmp") -- Autocompletion plugin
+  -- use("saadparwaiz1/cmp_luasnip")
+  -- use("L3MON4D3/LuaSnip") -- Snippets plugin
 
   use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
 
   use("jose-elias-alvarez/typescript.nvim")
 
-  use("dhruvasagar/vim-table-mode")
-  use("tpope/vim-dadbod")
-  use("kristijanhusak/vim-dadbod-completion")
+  -- use("dhruvasagar/vim-table-mode")
+  -- use("tpope/vim-dadbod")
+  -- use("kristijanhusak/vim-dadbod-completion")
+
+  -- use("github/copilot.vim")
+  -- use { "zbirenbaum/copilot.lua" }
+  -- use {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("copilot").setup({})
+  --   end,
+  -- }
+  -- use {
+  -- "zbirenbaum/copilot-cmp",
+  -- after = { "copilot.lua" },
+  -- config = function ()
+  --   require("copilot_cmp").setup()
+  -- end
+  -- }
 
   use({
     "folke/which-key.nvim",
@@ -349,8 +374,8 @@ require("orgmode").setup({
 require("mason").setup()
 require("mason-lspconfig").setup({ automatic_installation = true })
 
-local lsp_format = require("lsp-format")
-lsp_format.setup()
+-- local lsp_format = require("lsp-format")
+-- lsp_format.setup()
 
 local lspconfig = require("lspconfig")
 local on_attach = function(client, bufnr)
@@ -382,40 +407,40 @@ local on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols,
     { desc = "document symbols", buffer = opts.buffer })
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.format, {})
+  -- vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.format, {})
 
-  lsp_format.on_attach(client)
+  -- lsp_format.on_attach(client)
 
   -- Autoformat when applicable
   -- https://github.com/VapourNvim/VapourNvim/blob/main/lua/null-ls-config/init.lua
-  if client.server_capabilities.document_formatting then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
-    if client.server_capabilities.document_highlight then
-      vim.api.nvim_exec([[
-      augroup document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]] , false)
-    end
-  end
+  -- if client.server_capabilities.document_formatting then
+  --   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+  --   if client.server_capabilities.document_highlight then
+  --     vim.api.nvim_exec([[
+  --     augroup document_highlight
+  --       autocmd! * <buffer>
+  --       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+  --       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+  --     augroup END
+  --   ]] , false)
+  --   end
+  -- end
 end
 
 
-wk.register({
-  ['='] = { vim.lsp.buf.formatting_sync, 'Format' },
-}, { prefix = '<leader>l' })
-vim.cmd("nnoremap <silent> <leader>f :Format<CR>")
-vim.cmd("nnoremap <silent> <leader>F :FormatWrite<CR>")
+-- wk.register({
+--   ['='] = { vim.lsp.buf.formatting_sync, 'Format' },
+-- }, { prefix = '<leader>l' })
+-- vim.cmd("nnoremap <silent> <leader>f :Format<CR>")
+-- vim.cmd("nnoremap <silent> <leader>F :FormatWrite<CR>")
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
 local servers = {
-  "asm_lsp",
+  -- "asm_lsp",
   "bashls",
   "clangd",
   "cmake",
@@ -429,7 +454,7 @@ local servers = {
   "gopls",
   "graphql",
   "html",
-  "hls",
+  -- "hls",
   "jedi_language_server",
   "jsonls",
   "kotlin_language_server",
@@ -458,96 +483,96 @@ for _, lsp in ipairs(servers) do
 end
 
 -- Configure lua language server
-require("lspconfig").sumneko_lua.setup({
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = { enable = false },
-    },
-  },
-})
+-- require("lspconfig").sumneko_lua.setup({
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--         version = "LuaJIT",
+--       },
+--       diagnostics = {
+--         -- Get the language server to recognize the `vim` global
+--         globals = { "vim" },
+--       },
+--       workspace = {
+--         -- Make the server aware of Neovim runtime files
+--         library = vim.api.nvim_get_runtime_file("", true),
+--       },
+--       -- Do not send telemetry data containing a randomized but unique identifier
+--       telemetry = { enable = false },
+--     },
+--   },
+-- })
 
 -- https://github.com/jose-elias-alvarez/typescript.nvim
 require("typescript").setup {}
 
-require 'lspconfig'.stylelint_lsp.setup {
-  settings = {
-    autoFixOnFormat = true,
-    autoFixOnSave = true,
-    validateOnType = true,
-  }
-}
+-- require 'lspconfig'.stylelint_lsp.setup {
+--   settings = {
+--     autoFixOnFormat = true,
+--     autoFixOnSave = true,
+--     validateOnType = true,
+--   }
+-- }
 
 -- https://github.com/windwp/nvim-autopairs
 -- based on https://github.com/luan/nvim/blob/main/lua/plugins/autopairs.lua
-require('nvim-autopairs').setup {}
+-- require('nvim-autopairs').setup {}
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- local cmp = require('cmp')
+-- cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
 -- luasnip setup
-local luasnip = require("luasnip")
+-- local luasnip = require("luasnip")
 
 -- nvim-cmp setup
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    }),
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-  }),
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "orgmode" },
-  },
-})
+-- cmp.setup({
+--   snippet = {
+--     expand = function(args)
+--       luasnip.lsp_expand(args.body)
+--     end,
+--   },
+--   mapping = cmp.mapping.preset.insert({
+--     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+--     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+--     ["<C-Space>"] = cmp.mapping.complete(),
+--     ["<CR>"] = cmp.mapping.confirm({
+--       behavior = cmp.ConfirmBehavior.Replace,
+--       select = true,
+--     }),
+--     ["<Tab>"] = cmp.mapping(function(fallback)
+--       if cmp.visible() then
+--         cmp.select_next_item()
+--       elseif luasnip.expand_or_jumpable() then
+--         luasnip.expand_or_jump()
+--       else
+--         fallback()
+--       end
+--     end, { "i", "s" }),
+--     ["<S-Tab>"] = cmp.mapping(function(fallback)
+--       if cmp.visible() then
+--         cmp.select_prev_item()
+--       elseif luasnip.jumpable(-1) then
+--         luasnip.jump(-1)
+--       else
+--         fallback()
+--       end
+--     end, { "i", "s" }),
+--   }),
+--   sources = {
+--     { name = "nvim_lsp" },
+--     { name = "luasnip" },
+--     { name = "orgmode" },
+--   },
+-- })
 
-vim.api.nvim_exec([[
-  autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 500)
-  autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
-  autocmd BufWritePre *.tfvars lua vim.lsp.buf.format { async = true }
-  autocmd BufWritePre *.tf lua vim.lsp.buf.format { async = true }
-]], false)
+-- vim.api.nvim_exec([[
+--   autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 500)
+--   autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
+--   autocmd BufWritePre *.tfvars lua vim.lsp.buf.format { async = true }
+--   autocmd BufWritePre *.tf lua vim.lsp.buf.format { async = true }
+-- ]], false)
 
 
 -- Folding
