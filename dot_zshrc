@@ -190,4 +190,4 @@ eval "$(zoxide init zsh)"
 # pnpm
 export PNPM_HOME="/Users/dees/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# pnpm end. /Users/dees/.asdf/asdf.sh

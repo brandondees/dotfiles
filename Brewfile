@@ -19,7 +19,7 @@ brew "yamllint"
 brew "lua-language-server"
 brew "neovim"
 brew "tmate"
-brew "mermaid-cli"
+# brew "mermaid-cli"
 brew "graphviz"
 brew "vint"
 brew "direnv"
@@ -72,22 +72,24 @@ brew "terraform-ls"
 brew "clojure-lsp/brew/clojure-lsp-native"
 brew "awscli"
 brew "exercism"
-brew "imageoptim-cli"
+# brew "imageoptim-cli"
 
 brew "cask"
 
-cask "google-cloud-sdk"
-cask "chronycontrol" # https://netfuture.ch/2021/12/transparent-trustworthy-time-with-ntp-and-nts/
-cask "kitty"
-cask "alacritty"
-cask "barrier"
-cask "amethyst"
-cask "wooshy"
-cask "raycast"
-cask "kindavim"
-cask "keycastr"
+cask "backblaze"
 cask "google-chrome"
 cask "firefox"
+cask "wooshy"
+cask "raycast"
+cask "bartender"
+cask "kindavim"
+cask "chronycontrol" # https://netfuture.ch/2021/12/transparent-trustworthy-time-with-ntp-and-nts/
+cask "kitty"
+cask "amethyst"
+cask "google-cloud-sdk"
+cask "alacritty"
+cask "barrier"
+cask "keycastr"
 cask "imageoptim"
 cask "gimp"
 cask "inkscape"
@@ -95,7 +97,6 @@ cask "licecap"
 cask "zoom"
 cask "skype"
 cask "vlc"
-cask "deezer"
 cask "obs"
 cask "soundsource"
 cask "tuple"
@@ -126,6 +127,7 @@ cask "dotnet-sdk"
 cask "discord"
 cask "obsidian"
 cask "miro"
+cask "figma"
 cask "nomachine"
 cask "graphiql"
 cask "spotify"
@@ -135,7 +137,8 @@ brew "mas"
 mas "Amphetamine", id: 937984704
 mas "1Password 7 - Password Manager", id: 1333542190
 cask "1password-cli"
-mas "AudioSwitcher", id: 561712678
+# mas "AudioSwitcher", id: 561712678
+mas "Shush - Microphone Manager", id: 496437906
 
 mas "XCode", id: 497799835
 mas "Postico", id: 1031280567
@@ -152,3 +155,4 @@ mas "Tailscale", id: 1475387142
 mas "SwordSoft Screenink", id: 556304449
 
 mas "Slack for Desktop", id: 803453959
+

@@ -111,13 +111,13 @@ require("packer").startup(function(use)
 
   })
 
-  -- use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
-  -- use("hrsh7th/cmp-buffer")
-  -- use("hrsh7th/cmp-path")
-  -- use("hrsh7th/cmp-cmdline")
-  -- use("hrsh7th/nvim-cmp") -- Autocompletion plugin
-  -- use("saadparwaiz1/cmp_luasnip")
-  -- use("L3MON4D3/LuaSnip") -- Snippets plugin
+  use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-cmdline")
+  use("hrsh7th/nvim-cmp") -- Autocompletion plugin
+  use("saadparwaiz1/cmp_luasnip")
+  use("L3MON4D3/LuaSnip") -- Snippets plugin
 
   use({ "fatih/vim-go", run = ":GoUpdateBinaries" })
 
@@ -129,21 +129,21 @@ require("packer").startup(function(use)
 
   -- use("github/copilot.vim")
   -- use { "zbirenbaum/copilot.lua" }
-  -- use {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("copilot").setup({})
-  --   end,
-  -- }
-  -- use {
-  -- "zbirenbaum/copilot-cmp",
-  -- after = { "copilot.lua" },
-  -- config = function ()
-  --   require("copilot_cmp").setup()
-  -- end
-  -- }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
+  }
+  use {
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+  }
 
   use({
     "folke/which-key.nvim",
@@ -435,7 +435,7 @@ end
 -- vim.cmd("nnoremap <silent> <leader>F :FormatWrite<CR>")
 
 -- Add additional capabilities supported by nvim-cmp
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
@@ -448,7 +448,7 @@ local servers = {
   "cssmodules_ls",
   "clojure_lsp",
   "crystalline",
-  "diagnosticls",
+  -- "diagnosticls",
   "dockerls",
   "eslint",
   "gopls",
@@ -456,13 +456,12 @@ local servers = {
   "html",
   -- "hls",
   "jedi_language_server",
-  "jsonls",
+  -- "jsonls",
   "kotlin_language_server",
   "marksman",
   "prosemd_lsp",
   "pylsp",
   "pyright",
-  "rome",
   "solargraph",
   "sqlls",
   "svelte",
@@ -517,62 +516,80 @@ require("typescript").setup {}
 
 -- https://github.com/windwp/nvim-autopairs
 -- based on https://github.com/luan/nvim/blob/main/lua/plugins/autopairs.lua
--- require('nvim-autopairs').setup {}
+require('nvim-autopairs').setup {}
 
--- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
--- local cmp = require('cmp')
--- cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 
 -- luasnip setup
 -- local luasnip = require("luasnip")
 
 -- nvim-cmp setup
--- cmp.setup({
---   snippet = {
---     expand = function(args)
---       luasnip.lsp_expand(args.body)
---     end,
---   },
---   mapping = cmp.mapping.preset.insert({
---     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
---     ["<C-f>"] = cmp.mapping.scroll_docs(4),
---     ["<C-Space>"] = cmp.mapping.complete(),
---     ["<CR>"] = cmp.mapping.confirm({
---       behavior = cmp.ConfirmBehavior.Replace,
---       select = true,
---     }),
---     ["<Tab>"] = cmp.mapping(function(fallback)
---       if cmp.visible() then
---         cmp.select_next_item()
---       elseif luasnip.expand_or_jumpable() then
---         luasnip.expand_or_jump()
---       else
---         fallback()
---       end
---     end, { "i", "s" }),
---     ["<S-Tab>"] = cmp.mapping(function(fallback)
---       if cmp.visible() then
---         cmp.select_prev_item()
---       elseif luasnip.jumpable(-1) then
---         luasnip.jump(-1)
---       else
---         fallback()
---       end
---     end, { "i", "s" }),
---   }),
---   sources = {
---     { name = "nvim_lsp" },
---     { name = "luasnip" },
---     { name = "orgmode" },
---   },
--- })
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<CR>"] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  }),
+  sources = {
+    { name = "copilot" },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "orgmode" },
+  },
+})
 
--- vim.api.nvim_exec([[
---   autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 500)
---   autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
---   autocmd BufWritePre *.tfvars lua vim.lsp.buf.format { async = true }
---   autocmd BufWritePre *.tf lua vim.lsp.buf.format { async = true }
--- ]], false)
+local has_words_before = function() 
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+end
+cmp.setup({
+  mapping = {
+    ["<Tab>"] = vim.schedule_wrap(function(fallback)
+      if cmp.visible() and has_words_before() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      else
+        fallback()
+      end
+    end),
+  },
+})
+
+vim.api.nvim_exec([[
+  autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 500)
+  autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
+  autocmd BufWritePre *.tfvars lua vim.lsp.buf.format { async = true }
+  autocmd BufWritePre *.tf lua vim.lsp.buf.format { async = true }
+]], false)
 
 
 -- Folding
