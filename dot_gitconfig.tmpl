@@ -1,9 +1,9 @@
 [init]
   defaultBranch = main
 [user]
-  name = {{ .name }}
-  email = {{ .email }}
-  token = {{ .github_token }}
+  name = {{ .name | quote }}
+  email = {{ .email | quote }}
+  token = {{ .github_token | quote }}
 [core]
   excludesfile = $HOME/.gitignore
 [alias]
