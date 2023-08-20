@@ -25,12 +25,12 @@ end
 local Packer_bootstrap = ensure_packer()
 
 -- load plugins
--- vim.cmd([[
--- augroup config#update
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
--- augroup END
--- ]])
+vim.cmd([[
+augroup config#update
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup END
+]])
 
 require("packer").startup(function(use)
   use("wbthomason/packer.nvim") -- Package manager
@@ -44,6 +44,8 @@ require("packer").startup(function(use)
 
   use { 'mfussenegger/nvim-dap' }
   use { 'nvim-telescope/telescope-dap.nvim' }
+
+  use {'dgagn/diagflow.nvim'} -- floating diagnostic text
 
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use {
@@ -219,6 +221,9 @@ require("telescope").setup({})
 
 -- Enable telescope fzf native
 require("telescope").load_extension("fzf")
+
+-- Default diagflow config for floating diagnostic output
+require('diagflow').setup()
 
 --Add leader shortcuts
 local wk = require("which-key")
@@ -447,11 +452,11 @@ local servers = {
   "cssls",
   "cssmodules_ls",
   "clojure_lsp",
-  "crystalline",
+  -- "crystalline",
   -- "diagnosticls",
   "dockerls",
   "eslint",
-  "gopls",
+  -- "gopls",
   "graphql",
   "html",
   -- "hls",
@@ -462,7 +467,7 @@ local servers = {
   "prosemd_lsp",
   "pylsp",
   "pyright",
-  "solargraph",
+  -- "solargraph",
   "sqlls",
   "svelte",
   "taplo",
