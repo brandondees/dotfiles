@@ -186,6 +186,11 @@ eval "$(starship init zsh)"
 # https://github.com/ajeetdsouza/zoxide quick directory navigation
 eval "$(zoxide init zsh)"
 
+# https://github.com/antonmedv/walk walk, a fancy fuzzy finding `cd` enhancer using `lk`
+function lk {
+  cd "$(walk --icons "$@")"
+}
+
 
 # pnpm
 export PNPM_HOME="/Users/dees/Library/pnpm"
