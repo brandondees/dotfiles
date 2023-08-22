@@ -74,6 +74,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0" },
+    loaded = true,
+    path = "/Users/dees/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -94,6 +100,11 @@ _G.packer_plugins = {
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-omni"] = {
+    loaded = true,
+    path = "/Users/dees/.local/share/nvim/site/pack/packer/start/cmp-omni",
+    url = "https://github.com/hrsh7th/cmp-omni"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -103,11 +114,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  conjure = {
-    loaded = true,
-    path = "/Users/dees/.local/share/nvim/site/pack/packer/start/conjure",
-    url = "https://github.com/Olical/conjure"
   },
   ["copilot-cmp"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16copilot_cmp\frequire\0" },
@@ -134,6 +140,11 @@ _G.packer_plugins = {
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/diagflow.nvim",
     url = "https://github.com/dgagn/diagflow.nvim"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/Users/dees/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["editorconfig.nvim"] = {
     loaded = true,
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/editorconfig.nvim",
@@ -143,6 +154,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
+  },
+  ["lsp-format.nvim"] = {
+    loaded = true,
+    path = "/Users/dees/.local/share/nvim/site/pack/packer/start/lsp-format.nvim",
+    url = "https://github.com/lukas-reineke/lsp-format.nvim"
   },
   ["lush.nvim"] = {
     loaded = true,
@@ -173,6 +189,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dees/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-genghis"] = {
+    loaded = true,
+    path = "/Users/dees/.local/share/nvim/site/pack/packer/start/nvim-genghis",
+    url = "https://github.com/chrisgrieser/nvim-genghis"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -294,14 +315,18 @@ time([[Defining packer_plugins]], false)
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: nvim-treesitter-endwise
-time([[Config for nvim-treesitter-endwise]], true)
-try_loadstring("\27LJ\2\ng\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fendwise\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter-endwise")
-time([[Config for nvim-treesitter-endwise]], false)
 -- Config for: orgmode
 time([[Config for orgmode]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\21setup_ts_grammar\forgmode\frequire\0", "config", "orgmode")
 time([[Config for orgmode]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: nvim-treesitter-endwise
+time([[Config for nvim-treesitter-endwise]], true)
+try_loadstring("\27LJ\2\ng\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fendwise\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter-endwise")
+time([[Config for nvim-treesitter-endwise]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

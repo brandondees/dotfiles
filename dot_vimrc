@@ -54,15 +54,15 @@ Plug 'junegunn/vim-plug'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'sheerun/vim-polyglot'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'tpope/vim-markdown'
+" Plug 'tpope/vim-markdown'
 " Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch' " Common shell helpers like mkdir, rename, sudo write, etc
+" Plug 'tpope/vim-eunuch' " Common shell helpers like mkdir, rename, sudo write, etc
 " Plug 'dense-analysis/ale'
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile', 'branch': 'release'}
 " Plug 'neomake/neomake'
 " Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'mgedmin/test-on-save.vim'
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'mgedmin/test-on-save.vim'
 
 " Plug 'sonph/onehalf', { 'rtp': 'vim' }
 " Plug 'rktjmp/lush.nvim'
@@ -138,16 +138,16 @@ map <leader>vr :tabedit ~/.vimrc<CR>
 map <leader>vn :tabedit $MYVIMRC<CR>
 map <leader>vl :source $MYVIMRC<CR>
 
-map <Esc><Esc> :noh<CR>:set nopaste<CR>
+" map <Esc><Esc> :noh<CR>:set nopaste<CR>
 " map <leader>r :!resize<CR><CR>
 " map <leader>f :set paste<CR>mmggi# frozen_string_literal: true<CR><CR><Esc>`m:set nopaste<CR>
 " map <leader>c :!ctags -R --languages=ruby --exclude=.git --exclude=log --tag-relative=yes -f .tags . $(bundle list --paths)<CR>
-map <leader>co mmgg"+yG`m
+" map <leader>co mmgg"+yG`m
 " map <leader>' cs"'
 " map <leader>" cs'"
 " map <Leader>o :w<cr>:call RunNearestSpec()<CR>
 " fzf file fuzzy search
-nnoremap <C-p> :FZF<CR>
+" nnoremap <C-p> :FZF<CR>
 " nnoremap <silent> <Leader>f :Rg<CR>
 
 " ALE Asynchronous Lint Engine Config
@@ -389,7 +389,7 @@ set updatetime=50
 " let g:gitgutter_highlight_lines = 0 " don't highlight full lines, it messes with syntax highlighting
 
 " Line Length Guide
-set textwidth=80
+set textwidth=120
 set colorcolumn=+1
 
 " No local swp and ~ files

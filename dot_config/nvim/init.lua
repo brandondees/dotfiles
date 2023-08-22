@@ -87,7 +87,7 @@ require("packer").startup(function(use)
     end
   }
 
-  use("Olical/conjure") -- repl workflow in editor
+  -- use("Olical/conjure") -- repl workflow in editor, important for clojure
 
   use({
     "ThePrimeagen/refactoring.nvim",
@@ -108,7 +108,7 @@ require("packer").startup(function(use)
   use({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    -- 'lukas-reineke/lsp-format.nvim',
+    'lukas-reineke/lsp-format.nvim',
 
     "neovim/nvim-lspconfig", -- Configurations for Nvim LSP
     'folke/lsp-colors.nvim',
@@ -160,6 +160,14 @@ require("packer").startup(function(use)
       require("which-key").setup({})
     end,
   })
+
+  -- Genghis replaces vim-eunuch for general file commands
+  use { "chrisgrieser/nvim-genghis", requires = {
+    "stevearc/dressing.nvim",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-omni",
+    },
+  }
 
   -- Colorscheme / Themes
   -- use('fenetikm/falcon')
@@ -234,18 +242,21 @@ require('diagflow').setup()
 
 --Add leader shortcuts
 local wk = require("which-key")
-wk.register({
-  ["<leader>v"] = { name = "+vim config" },
-  -- ["<leader>f"] = { name = "+files" },
-  ["<leader>s"] = { name = "+search" },
-  ["<leader>r"] = { name = "+refactor" },
-  ["<leader>d"] = { name = "+debugging" },
-  ["g"] = { name = "+goto" },
-})
-
-vim.keymap.set("n", "<leader>fn", function()
-  vim.cmd(":tabnew")
-end, { desc = "New File (tab)" })
+  wk.register({
+    ["<leader>v"] = { name = "+vim config" },
+    ["<leader>s"] = { name = "+search" },
+    ["<leader>r"] = { name = "+refactor" },
+    ["<leader>d"] = { name = "+debugging / delete" },
+    ["<leader>y"] = { name = "+yank/copy" },
+    ["<leader>c"] = { name = "+change" },
+    ["<leader>r"] = { name = "+replace / rename" },
+    ["<leader>m"] = { name = "+move" },
+    ["<leader>n"] = { name = "+new" },
+    ["<leader>e"] = { name = "+evaluate" },
+    ["<leader>f"] = { name = "+file" },
+    ["<leader>l"] = { name = "+log" },
+    ["g"] = { name = "+goto" },
+  })
 
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "find buffer" })
 vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "find file" })
@@ -272,6 +283,20 @@ vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "diagnosti
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "diagnostic goto prev" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "diagnostic goto next" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "show diagnostic list" })
+
+-- nvim-genghis os utility / vim-eunuch replacement keymaps
+local genghis = require("genghis")
+if genghis then
+  vim.keymap.set("n", "<leader>yp", genghis.copyFilepath, { desc = "copy file path"})
+  vim.keymap.set("n", "<leader>yn", genghis.copyFilename, { desc = "copy file name"})
+  vim.keymap.set("n", "<leader>cx", genghis.chmodx, { desc = "chmodx"})
+  vim.keymap.set("n", "<leader>rf", genghis.renameFile, { desc = "rename file"})
+  vim.keymap.set("n", "<leader>mf", genghis.moveAndRenameFile, { desc = "move and rename file"})
+  vim.keymap.set("n", "<leader>nf", genghis.createNewFile, { desc = "create new file"})
+  vim.keymap.set("n", "<leader>yf", genghis.duplicateFile, { desc = "duplicate file"})
+  vim.keymap.set("n", "<leader>df", function () genghis.trashFile{} end, { desc = "trash file"}) -- default: "$HOME/.Trash".
+  vim.keymap.set("x", "<leader>x", genghis.moveSelectionToNewFile, { desc = "move selection to new file"})
+end
 
 
 -- Debugger / Debugging / DAP
@@ -386,8 +411,8 @@ require("orgmode").setup({
 require("mason").setup()
 require("mason-lspconfig").setup({ automatic_installation = true })
 
--- local lsp_format = require("lsp-format")
--- lsp_format.setup()
+local lsp_format = require("lsp-format")
+lsp_format.setup()
 
 local lspconfig = require("lspconfig")
 local on_attach = function(client, bufnr)
@@ -419,7 +444,7 @@ local on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols,
     { desc = "document symbols", buffer = opts.buffer })
-  -- vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.format, {})
+  vim.api.nvim_buf_create_user_command(bufnr, "Format", vim.lsp.buf.format, {})
 
   -- lsp_format.on_attach(client)
 
@@ -451,47 +476,47 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
-local servers = {
-  -- "asm_lsp",
-  "bashls",
-  "clangd",
-  "cmake",
-  "cssls",
-  "cssmodules_ls",
-  "clojure_lsp",
-  -- "crystalline",
-  -- "diagnosticls",
-  "dockerls",
-  "eslint",
-  -- "gopls",
-  "graphql",
-  "html",
-  -- "hls",
-  "jedi_language_server",
-  -- "jsonls",
-  "kotlin_language_server",
-  "marksman",
-  "prosemd_lsp",
-  "pylsp",
-  "pyright",
-  -- "solargraph",
-  "sqlls",
-  "svelte",
-  "taplo",
-  "tailwindcss",
-  "terraformls",
-  "tflint",
-  -- "tsserver",
-  "vimls",
-  "lemminx",
-  "yamlls",
-}
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-  })
-end
+-- local servers = {
+--   -- "asm_lsp",
+--   "bashls",
+--   "clangd",
+--   "cmake",
+--   "cssls",
+--   "cssmodules_ls",
+--   "clojure_lsp",
+--   -- "crystalline",
+--   -- "diagnosticls",
+--   "dockerls",
+--   "eslint",
+--   -- "gopls",
+--   "graphql",
+--   "html",
+--   -- "hls",
+--   "jedi_language_server",
+--   -- "jsonls",
+--   "kotlin_language_server",
+--   "marksman",
+--   "prosemd_lsp",
+--   "pylsp",
+--   "pyright",
+--   -- "solargraph",
+--   "sqlls",
+--   "svelte",
+--   "taplo",
+--   "tailwindcss",
+--   "terraformls",
+--   "tflint",
+--   "tsserver",
+--   "vimls",
+--   "lemminx",
+--   "yamlls",
+-- }
+-- for _, lsp in ipairs(servers) do
+--   lspconfig[lsp].setup({
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   })
+-- end
 
 -- Configure lua language server
 -- require("lspconfig").sumneko_lua.setup({
@@ -596,8 +621,8 @@ cmp.setup({
   },
 })
 
+  -- autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 500)
 vim.api.nvim_exec([[
-  autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 500)
   autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform
   autocmd BufWritePre *.tfvars lua vim.lsp.buf.format { async = true }
   autocmd BufWritePre *.tf lua vim.lsp.buf.format { async = true }
