@@ -80,6 +80,13 @@ require("packer").startup(function(use)
     end
   }
 
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+
   use("Olical/conjure") -- repl workflow in editor
 
   use({
