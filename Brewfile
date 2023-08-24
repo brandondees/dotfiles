@@ -16,6 +16,7 @@ brew "openssl"
 brew "yamllint"
 brew "lua-language-server"
 brew "neovim"
+brew "chafa" # used for image previews in neovim
 brew "tmate"
 # brew "mermaid-cli"
 brew "graphviz"
