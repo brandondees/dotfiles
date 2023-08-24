@@ -37,9 +37,10 @@ require("packer").startup(function(use)
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+  use({ "nvim-lua/popup.nvim" }) -- for telescope-media-files
+  use({ "nvim-telescope/telescope-media-files.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope-symbols.nvim" })
-  use({ "nvim-telescope/telescope-media-files.nvim" })
 
   use('gpanders/editorconfig.nvim')
 
