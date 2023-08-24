@@ -39,6 +39,7 @@ require("packer").startup(function(use)
   use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope-symbols.nvim" })
+  use({ "nvim-telescope/telescope-media-files.nvim" })
 
   use('gpanders/editorconfig.nvim')
 
@@ -157,6 +158,8 @@ require("packer").startup(function(use)
   use({
     "folke/which-key.nvim",
     config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 20
       require("which-key").setup({})
     end,
   })
@@ -232,7 +235,20 @@ vim.cmd("colorscheme duckbones")
 
 
 -- Telescope
-require("telescope").setup({})
+-- require("telescope").setup({})
+-- Enable telescope with media previews
+require("telescope").load_extension("media_files")
+require'telescope'.setup {
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"png", "webp", "jpg", "jpeg", "mp4", "webm", "pdf", "svg", "gif"},
+      -- find command (defaults to `fd`)
+      find_cmd = "rg"
+    }
+  },
+}
 
 -- Enable telescope fzf native
 require("telescope").load_extension("fzf")
@@ -255,11 +271,12 @@ local wk = require("which-key")
     ["<leader>e"] = { name = "+evaluate" },
     ["<leader>f"] = { name = "+file" },
     ["<leader>l"] = { name = "+log" },
-    ["g"] = { name = "+goto" },
+    ["g"] = { name = "+goto / incremental selection" },
   })
 
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "find buffer" })
 vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "find file" })
+vim.keymap.set("n", "<leader>sm", require('telescope').extensions.media_files.media_files, { desc = "find media files" })
 vim.keymap.set(
   "n",
   "<leader>sb",
@@ -309,7 +326,7 @@ require("orgmode").setup_ts_grammar()
 require("nvim-treesitter.configs").setup({
   auto_install = true,
   indent = { enable = true },
-  ensure_installed = { "org", "lua", "html", "markdown", "css", "typescript", "bash", "dockerfile", "gitignore", "json",
+  ensure_installed = { "org", "lua", "html", "svelte", "markdown", "css", "typescript", "bash", "dockerfile", "gitignore", "json",
     "regex", "ruby", "sql", "vim", "yaml" }, -- Or run :TSUpdate org
 
   -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
