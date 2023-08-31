@@ -196,3 +196,7 @@ function lk {
 export PNPM_HOME="/Users/dees/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end. /Users/dees/.asdf/asdf.sh
+
+
+# getfoundry.sh solidity toolkit
+export PATH="$PATH:$HOME/.foundry/bin"

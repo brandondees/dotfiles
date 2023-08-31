@@ -265,7 +265,7 @@ local wk = require("which-key")
     ["<leader>r"] = { name = "+refactor" },
     ["<leader>d"] = { name = "+debugging / delete" },
     ["<leader>y"] = { name = "+yank/copy" },
-    ["<leader>c"] = { name = "+change" },
+    -- ["<leader>c"] = { name = "+change" },
     ["<leader>r"] = { name = "+replace / rename" },
     ["<leader>m"] = { name = "+move" },
     ["<leader>n"] = { name = "+new" },
@@ -494,47 +494,47 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
--- local servers = {
---   -- "asm_lsp",
---   "bashls",
---   "clangd",
---   "cmake",
---   "cssls",
---   "cssmodules_ls",
---   "clojure_lsp",
---   -- "crystalline",
---   -- "diagnosticls",
---   "dockerls",
---   "eslint",
---   -- "gopls",
---   "graphql",
---   "html",
---   -- "hls",
---   "jedi_language_server",
---   -- "jsonls",
---   "kotlin_language_server",
---   "marksman",
---   "prosemd_lsp",
---   "pylsp",
---   "pyright",
---   -- "solargraph",
---   "sqlls",
---   "svelte",
---   "taplo",
---   "tailwindcss",
---   "terraformls",
---   "tflint",
---   "tsserver",
---   "vimls",
---   "lemminx",
---   "yamlls",
--- }
--- for _, lsp in ipairs(servers) do
---   lspconfig[lsp].setup({
---     on_attach = on_attach,
---     capabilities = capabilities,
---   })
--- end
+local servers = {
+  -- "asm_lsp",
+  "bashls",
+  "clangd",
+  "cmake",
+  "cssls",
+  "cssmodules_ls",
+  "clojure_lsp",
+  -- "crystalline",
+  -- "diagnosticls",
+  "dockerls",
+  "eslint",
+  -- "gopls",
+  "graphql",
+  "html",
+  -- "hls",
+  "jedi_language_server",
+  -- "jsonls",
+  "kotlin_language_server",
+  "marksman",
+  "prosemd_lsp",
+  "pylsp",
+  "pyright",
+  -- "solargraph",
+  "sqlls",
+  "svelte",
+  "taplo",
+  "tailwindcss",
+  "terraformls",
+  "tflint",
+  "tsserver",
+  "vimls",
+  "lemminx",
+  "yamlls",
+}
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+end
 
 -- Configure lua language server
 -- require("lspconfig").sumneko_lua.setup({
