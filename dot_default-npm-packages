@@ -8,14 +8,10 @@ lodash
 request
 tldr
 typescript
-vim-language-server
-yaml-language-server
-css-language-server
-graphql-language-service-cli
-vim-language-server
-svelte-language-server
 eslint_d
 @fsouza/prettierd
 pure-prompt
 esbuild
 rollup
+eclint
+tree-sitter-cli
