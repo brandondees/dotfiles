@@ -20,6 +20,7 @@ brew "neovim"
 brew "chafa" # used for image previews in neovim
 brew "tmate"
 # brew "mermaid-cli"
+brew "glow"
 brew "graphviz"
 brew "vint"
 brew "direnv"
