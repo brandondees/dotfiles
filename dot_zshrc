@@ -204,3 +204,6 @@ export PATH="$PATH:$HOME/.foundry/bin"
 autoload -U compinit
 compinit -i
 
+
+# bun completions
+[ -s "/Users/dees/.bun/_bun" ] && source "/Users/dees/.bun/_bun"
