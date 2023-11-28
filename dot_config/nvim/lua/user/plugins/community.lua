@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.swift" },
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.editing-support.nvim-devdocs" },
