@@ -78,6 +78,7 @@ brew "clojure-lsp/brew/clojure-lsp-native"
 brew "awscli"
 brew "exercism"
 # brew "imageoptim-cli"
+brew "xcodegen"
 
 brew "cask"
 
@@ -139,6 +140,7 @@ cask "figma"
 cask "nomachine"
 cask "graphiql"
 cask "spotify"
+cask "copilot-for-xcode"
 
 brew "mas"
 
