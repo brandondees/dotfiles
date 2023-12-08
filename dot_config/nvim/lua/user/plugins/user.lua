@@ -102,4 +102,14 @@ return {
       exclude = {}, -- exclude these filetypes
     },
   },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+  },
+  {
+    "rktjmp/lush.nvim",
+  },
+  {
+    "mcchrish/zenbones.nvim",
+    requires = "rktjmp/lush.nvim",
+  },
 }
