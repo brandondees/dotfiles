@@ -1,4 +1,3 @@
-yarn
 express
 neovim
 pnpm
@@ -8,8 +7,6 @@ lodash
 request
 tldr
 typescript
-eslint_d
-@fsouza/prettierd
 pure-prompt
 esbuild
 rollup
