@@ -549,7 +549,7 @@ initial_window_height 35c
 #: and the lines value for vertical resizing.
 
 # window_border_width 0.5pt
-window_border_width 3pt
+window_border_width 5pt
 
 #: The width of window borders. Can be either in pixels (px) or pts
 #: (pt). Values in pts will be rounded to the nearest number of pixels
@@ -567,7 +567,7 @@ draw_minimal_borders yes
 #: borders to be drawn.
 
 # window_margin_width 0
-window_margin_width 12
+window_margin_width 4
 
 #: The window margin (in pts) (blank area outside the border). A
 #: single value sets all four sides. Two values set the vertical and
@@ -584,7 +584,7 @@ window_margin_width 12
 #: bottom and left.
 
 # window_padding_width 0
-window_padding_width 24
+window_padding_width 16
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
@@ -602,20 +602,23 @@ placement_strategy center
 #: only the bottom and right edges.
 
 # active_border_color #00ff00
-
+active_border_color #868d80
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
 
 # inactive_border_color #cccccc
+inactive_border_color #505a60
 
 #: The color for the border of inactive windows
 
 # bell_border_color #ff5a00
+bell_border_color #d8caac
 
 #: The color for the border of inactive windows in which a bell has
 #: occurred
 
 # inactive_text_alpha 1.0
+inactive_text_alpha 0.8
 
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
@@ -921,7 +924,7 @@ dynamic_background_opacity yes
 
 #: }}}
 
-include onehalf-dark.conf
+# include onehalf-dark.conf
 
 #: Advanced {{{
 
@@ -956,7 +959,9 @@ include onehalf-dark.conf
 #: can fail silently because their stdout/stderr/stdin no longer work.
 
 # allow_remote_control no
-allow_remote_control yes
+# allow_remote_control yes
+allow_remote_control socket-only
+listen_on unix:/tmp/kitty
 
 #: Allow other programs to control kitty. If you turn this on other
 #: programs can control all aspects of kitty, including sending text
@@ -1550,6 +1555,5 @@ map cmd+shift+enter toggle_fullscreen
 
 
 # BEGIN_KITTY_THEME
-# Japanesque
-include current-theme.conf
+include duckbones.conf
 # END_KITTY_THEME
