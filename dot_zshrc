@@ -1,3 +1,19 @@
+# Enable performance troubleshooting output:
+# set -x
+
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
+autoload -U compinit
+compinit -i -d ~/.zcompdump
+
+# export STARSHIP_LOG=trace starship timings
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/Applications/Postgres.app/Contents/Versions/12/bin:/usr/local/sbin:/usr/local/bin:$PATH
@@ -69,7 +85,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-export HISTSIZE=1000000
+export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
@@ -83,21 +99,21 @@ setopt EXTENDED_HISTORY
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git)
 plugins=(
-  asdf
+  # asdf
   brew
   # bundler
   direnv
   fzf
   git
   git-auto-fetch
-  git-prompt
+  # git-prompt
   gh
-  golang
+  # golang
   gpg-agent
-  heroku
-  helm
+  # heroku
+  # helm
   keychain
-  lein
+  # lein
   # lol
   macos
   # magic-enter
@@ -105,8 +121,8 @@ plugins=(
   ripgrep
   # ruby
   ssh-agent
-  terraform
-  kubectl
+  # terraform
+  # kubectl
   docker
   docker-compose
   aws
@@ -122,7 +138,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Autocompletion support for bitwarden CLI
-eval "$(bw completion --shell zsh); compdef _bw bw;"
+# eval "$(bw completion --shell zsh); compdef _bw bw;"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export MANPATH="/usr/local/man:$MANPATH"
@@ -141,10 +157,11 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # Use asdf-vm
-. ~/.asdf/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
+# . ~/.asdf/asdf.sh
+# . ~/.asdf/plugins/java/set-java-home.zsh
 
-
+# bun completions
+[ -s "/Users/dees/.bun/_bun" ] && source "/Users/dees/.bun/_bun"
 
 # Trusted local binstub paths
 # see also `git trust` alias in gitconfig
@@ -199,11 +216,23 @@ export PATH="$PNPM_HOME:$PATH"
 
 
 # getfoundry.sh solidity toolkit
-export PATH="$PATH:$HOME/.foundry/bin"
+# export PATH="$PATH:$HOME/.foundry/bin"
 
-autoload -U compinit
-compinit -i
+# Aaron's AI utility
+export PATH="$PATH:~/Projects/ai-functions/bin"
+source ~/Projects/ai-functions/ai.zsh
 
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
-# bun completions
-[ -s "/Users/dees/.bun/_bun" ] && source "/Users/dees/.bun/_bun"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+eval "$(mise activate zsh)"
+# eval "$(mise completion zsh)"
+
+# Entirety of my startup file... then
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi
+
