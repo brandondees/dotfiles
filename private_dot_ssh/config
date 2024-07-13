@@ -1,3 +1,5 @@
+Include ~/.orbstack/ssh/config
+
 ## START GITPOD INTEGRATION
 ## This section is managed by Gitpod. Any manual changes will be lost.
 Include "gitpod/config"
