@@ -34,7 +34,6 @@ symbol = " "
 read_only = " "
 
 [directory.substitutions]
-"Artium Dropbox" = "Artium  "
 "Dropbox" = " "
 
 [docker_context]
@@ -54,8 +53,8 @@ symbol = " "
 symbol = " "
 
 [git_metrics]
-disabled=true
-only_nonzero_diffs=true
+disabled = true
+only_nonzero_diffs = true
 format = '[+$added]($added_style)/[−$deleted]($deleted_style) '
 
 [git_commit]
@@ -82,6 +81,7 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
+disabled = true
 symbol = " "
 
 [nim]
@@ -91,11 +91,13 @@ symbol = " "
 symbol = " "
 
 [nodejs]
-symbol = " "
-format = "[$symbol($version)]($style) "
+disabled = true
+# symbol = " "
+# format = "[$symbol($version)]($style) "
 
 [package]
-symbol = " "
+disabled = true
+# symbol = " "
 
 [rust]
 symbol = " "
