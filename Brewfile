@@ -7,12 +7,14 @@ tap "buildpacks/tap"
 tap "git-duet/tap"
 tap "clojure-lsp/brew"
 
+brew "mise"
 brew "git"
 brew "git-lfs"
 brew "git-duet"
 brew "lazygit"
 brew "gh"
 brew "openssh"
+brew "ssh-audit"
 brew "openssl"
 brew "yamllint"
 brew "lua-language-server"
@@ -84,10 +86,11 @@ brew "cask"
 
 cask "backblaze"
 cask "google-chrome"
+cask "chromedriver"
 cask "firefox"
 cask "wooshy"
+cask "jordanbaird-ice"
 cask "raycast"
-cask "bartender"
 cask "kindavim"
 cask "chronycontrol" # https://netfuture.ch/2021/12/transparent-trustworthy-time-with-ntp-and-nts/
 cask "kitty"
@@ -110,6 +113,7 @@ cask "tuple"
 cask "cakebrew"
 cask "cheatsheet"
 cask "docker"
+cask "orbstack"
 cask "lens"
 cask "postgres-unofficial" # postgresapp.com
 cask "jpadilla-redis"
@@ -163,6 +167,7 @@ mas "EasyRes", id: 688211836
 mas "Tailscale", id: 1475387142
 # mas "Alfred", id: 405843582
 mas "SwordSoft Screenink", id: 556304449
+mas "LocalSend", id: 1661733229 
 
 mas "Slack for Desktop", id: 803453959
 
