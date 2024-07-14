@@ -3208,6 +3208,50 @@
             }
           }
         }
+      },
+      "fossil": {
+        "version": "2.24",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_sonoma": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:57017ccd96af0539aa018cf48940242f0c5b32cd2fd31ce25e7faa047924e644",
+              "sha256": "57017ccd96af0539aa018cf48940242f0c5b32cd2fd31ce25e7faa047924e644"
+            },
+            "arm64_ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:40dc9b1f55904916ebdc854d88dc6573ba919f43e2266d0323a954c1e6d68243",
+              "sha256": "40dc9b1f55904916ebdc854d88dc6573ba919f43e2266d0323a954c1e6d68243"
+            },
+            "arm64_monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:65798cc7241b7a750814d3b16329a93824ee82a2e71356403ac8b038dfbbd831",
+              "sha256": "65798cc7241b7a750814d3b16329a93824ee82a2e71356403ac8b038dfbbd831"
+            },
+            "sonoma": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:41c32d18fcbd268a84b05586b899ef809f6a39ee6143e3fc6bb7cd688490ae50",
+              "sha256": "41c32d18fcbd268a84b05586b899ef809f6a39ee6143e3fc6bb7cd688490ae50"
+            },
+            "ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:7228d43abc37ca6b88547e00f8903d60187e3466204fad3f888c911f2bdd16f8",
+              "sha256": "7228d43abc37ca6b88547e00f8903d60187e3466204fad3f888c911f2bdd16f8"
+            },
+            "monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:6f7266e8686f5fff3931c68ec351c09924c291dd650cafdcaeed934c4cf0ad6c",
+              "sha256": "6f7266e8686f5fff3931c68ec351c09924c291dd650cafdcaeed934c4cf0ad6c"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/fossil/blobs/sha256:3ea54ffd2dad970235c48c33224d53069af59082106b1639ea91f99c2ccaff70",
+              "sha256": "3ea54ffd2dad970235c48c33224d53069af59082106b1639ea91f99c2ccaff70"
+            }
+          }
+        }
       }
     },
     "mas": {
