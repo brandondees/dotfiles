@@ -23,4 +23,7 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.editing-support.nvim-devdocs" },
   { import = "astrocommunity.test.neotest" },
+  { import = "astrocommunity.media.image-nvim" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
+  { import = "astrocommunity.completion.cmp-emoji" },
 }

@@ -82,4 +82,22 @@ return {
       )
     end,
   },
+  {
+    "camspiers/luarocks",
+    dependencies = {
+      "rcarriga/nvim-notify", -- Optional dependency
+    },
+    opts = {
+      rocks = { "magick" }, -- Specify LuaRocks packages to install
+    },
+  },
+  { "3rd/image.nvim" },
+  {
+    "Aaronik/GPTModels.nvim",
+    lazy = false,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }
