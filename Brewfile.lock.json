@@ -3576,6 +3576,12 @@
         "options": {
           "full_name": "aerospace"
         }
+      },
+      "git-credential-manager": {
+        "version": "2.6.0",
+        "options": {
+          "full_name": "git-credential-manager"
+        }
       }
     }
   },

@@ -91,6 +91,7 @@ cask "backblaze"
 cask "google-chrome"
 cask "firefox"
 cask "kitty"
+cask "git-credential-manager" # https://github.com/git-ecosystem/git-credential-manager
 cask "visual-studio-code"
 cask "chromedriver"
 cask "raycast"
