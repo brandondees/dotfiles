@@ -236,3 +236,6 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     exec 2>&3 3>&-
 fi
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/dees/.cache/lm-studio/bin"
