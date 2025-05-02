@@ -34,3 +34,6 @@ test -s ~/.alias && . ~/.alias || true
 
 # Run ssh-agent
 eval "$(ssh-agent -s)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/dees/.cache/lm-studio/bin"

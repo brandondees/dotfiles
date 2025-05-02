@@ -7,12 +7,17 @@ if [[ -n 'which lsd' ]]; then
 fi
 
 # Git Aliases
-alias gfc='git fetch upstream && git checkout upstream/master'
-alias gfr='git fetch upstream && git rebase -i upstream/master'
+alias gfc='git fetch upstream && git checkout upstream/main'
+alias gfr='git fetch upstream && git rebase -i upstream/main'
 alias status='git status'
 alias add='git add'
+alias p='git add -p'
 alias commit='git commit'
 alias commitm='git commit -m'
+alias c='git commit'
+alias cm='git commit -m'
+alias amend='git commit --amend'
+alias fixup='git commit --amend --no-edit'
 alias checkout='git checkout'
 alias gco='git checkout'
 alias push='git push'
@@ -21,7 +26,7 @@ alias branch='git branch -v'
 alias branches='git branch --all | fzf | xargs git checkout'
 alias fetch='git fetch --all --prune'
 alias remotes='git remote -v'
-alias pullup='git checkout master && git fetch --all && git pull upstream master'
+alias pullup='git checkout main && git fetch --all && git pull upstream main'
 
 # Personal Shortcuts
 alias home='cd ~ && ls -ABCF'
