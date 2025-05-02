@@ -118,17 +118,16 @@ plugins=(
   macos
   # magic-enter
   # rake
-  ripgrep
   # ruby
   ssh-agent
   # terraform
   # kubectl
-  docker
-  docker-compose
+  # docker
+  # docker-compose
   aws
   thefuck
   vi-mode
-  yarn
+  # yarn
   zsh-autosuggestions
   zsh-syntax-highlighting # must be last plugin
 )
@@ -228,7 +227,7 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 eval "$(mise activate zsh)"
-# eval "$(mise completion zsh)"
+eval "$(mise completion zsh)"
 
 # Entirety of my startup file... then
 if [[ "$PROFILE_STARTUP" == true ]]; then
@@ -239,3 +238,12 @@ fi
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/dees/.cache/lm-studio/bin"
+
+# Added by Windsurf
+export PATH="/Users/dees/.codeium/windsurf/bin:$PATH"
+
+
+# Carapace is a nice autocompletion thing
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
