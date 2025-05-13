@@ -10,6 +10,8 @@ fi
 alias gfc='git fetch upstream && git checkout upstream/main'
 alias gfr='git fetch upstream && git rebase -i upstream/main'
 alias status='git status'
+alias hist='git log --patch --decorate --color --stat'
+alias h='hist'
 alias add='git add'
 alias p='git add -p'
 alias commit='git commit'
