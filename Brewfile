@@ -92,68 +92,84 @@ brew "cask"
 cask "backblaze"
 cask "google-chrome"
 cask "firefox"
-cask "kitty"
-cask "ghostty"
-cask "git-credential-manager" # https://github.com/git-ecosystem/git-credential-manager
 cask "visual-studio-code"
 cask "chromedriver"
+cask "hey"
+cask "syncthing"
+
+# CLI env
+cask "kitty"
+cask "ghostty"
+cask "alacritty"
+cask "git-credential-manager" # https://github.com/git-ecosystem/git-credential-manager
+
+# Mac Quality of Life
 cask "raycast"
 cask "wooshy"
 cask "aerospace"
+# cask "amethyst"
 cask "soundsource"
 cask "jordanbaird-ice"
 cask "kindavim"
-cask "hey"
 cask "chronycontrol" # https://netfuture.ch/2021/12/transparent-trustworthy-time-with-ntp-and-nts/
-cask "contour"
-# cask "amethyst"
-cask "google-cloud-sdk"
-cask "alacritty"
 cask "barrier"
 cask "keycastr"
+cask "cheatsheet"
+cask "istat-menus" # todo: set up license activation
+
+cask "contour"
+cask "google-cloud-sdk"
 cask "imageoptim"
 cask "gimp"
 cask "inkscape"
 cask "licecap"
-cask "zoom"
-cask "skype"
 cask "vlc"
 cask "obs"
-cask "tuple"
 cask "cakebrew"
-cask "cheatsheet"
 cask "docker"
 cask "orbstack"
 cask "lens"
 cask "postgres-unofficial" # postgresapp.com
 cask "jpadilla-redis"
 cask "dropbox"
-cask "syncthing"
+cask "obsidian"
+cask "nomachine"
+cask "spotify"
+cask "ipfs"
+cask "miro"
+cask "figma"
+
+# Comms and messaging
+cask "zoom"
+cask "skype"
+cask "tuple"
+cask "signal"
 cask "keybase"
-cask "istat-menus" # todo: set up license activation
+cask "discord"
+
+# Fonts for dev
 cask "font-fira-code-nerd-font"
 cask "font-iosevka-nerd-font"
 cask "font-ibm-plex"
 cask "font-victor-mono-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
+
+# HTTP / API / GQL Clients
+cask "bruno"
 cask "insomnia"
 cask "postman"
+cask "graphiql"
+
+# IDEs / dev UI tools
 cask "android-studio"
+cask "cursor"
 # cask "intellij-idea" # pending: uninstall download version
 cask "rider"
 cask "datagrip"
 cask "webstorm"
 # cask "dotnet-sdk"
-cask "signal"
-cask "obsidian"
-cask "nomachine"
-cask "spotify"
-cask "ipfs"
-cask "discord"
-cask "miro"
-cask "figma"
-cask "graphiql"
 cask "copilot-for-xcode"
+
 
 brew "mas"
 
