@@ -92,6 +92,7 @@ brew "cask"
 cask "backblaze"
 cask "google-chrome"
 cask "firefox"
+cask "zed"
 cask "visual-studio-code"
 cask "chromedriver"
 cask "hey"
@@ -168,7 +169,8 @@ cask "rider"
 cask "datagrip"
 cask "webstorm"
 # cask "dotnet-sdk"
-cask "copilot-for-xcode"
+# cask "copilot-for-xcode"
+cask "github-copilot-for-xcode"
 
 
 brew "mas"
@@ -182,6 +184,8 @@ mas "LocalSend", id: 1661733229
 
 # mas "AudioSwitcher", id: 561712678
 mas "Shush - Microphone Manager", id: 496437906
+
+mas "MarkChart - Mermaid Preview", id: 6475648822  # https://markchart.app/
 
 mas "XCode", id: 497799835
 mas "Postico", id: 1031280567
