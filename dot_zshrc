@@ -3,10 +3,10 @@
 
 PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true ]]; then
-    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-    PS4=$'%D{%M%S%.} %N:%i> '
-    exec 3>&2 2>$HOME/tmp/startlog.$$
-    setopt xtrace prompt_subst
+  # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+  PS4=$'%D{%M%S%.} %N:%i> '
+  exec 3>&2 2>$HOME/tmp/startlog.$$
+  setopt xtrace prompt_subst
 fi
 
 autoload -U compinit
@@ -17,9 +17,6 @@ compinit -i -d ~/.zcompdump
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:/Applications/Postgres.app/Contents/Versions/12/bin:/usr/local/sbin:/usr/local/bin:$PATH
-
-
-
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/dees/.oh-my-zsh"
@@ -48,7 +45,7 @@ HYPHEN_INSENSITIVE="true"
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-zstyle ':omz:update' mode disabled  # just remind me to update when it's time
+zstyle ':omz:update' mode disabled # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -162,11 +159,13 @@ fi
 # bun completions
 [ -s "/Users/dees/.bun/_bun" ] && source "/Users/dees/.bun/_bun"
 
+export PATH="$HOME/.local/bin":$PATH
+
 # Trusted local binstub paths
 # see also `git trust` alias in gitconfig
 function set_local_bin_path() {
   # Replace any existing local bin paths with our new one
-  export PATH="${1:-""}`echo "$PATH"|sed -e 's,[^:]*\.git/[^:]*bin:,,g'`"
+  export PATH="${1:-""}$(echo "$PATH" | sed -e 's,[^:]*\.git/[^:]*bin:,,g')"
 }
 
 function add_trusted_local_bin_to_path() {
@@ -207,12 +206,10 @@ function lk {
   cd "$(walk --icons "$@")"
 }
 
-
 # pnpm
 export PNPM_HOME="/Users/dees/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end. /Users/dees/.asdf/asdf.sh
-
 
 # getfoundry.sh solidity toolkit
 # export PATH="$PATH:$HOME/.foundry/bin"
@@ -231,17 +228,15 @@ eval "$(mise completion zsh)"
 
 # Entirety of my startup file... then
 if [[ "$PROFILE_STARTUP" == true ]]; then
-    unsetopt xtrace
-    exec 2>&3 3>&-
+  unsetopt xtrace
+  exec 2>&3 3>&-
 fi
-
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/dees/.cache/lm-studio/bin"
 
 # Added by Windsurf
 export PATH="/Users/dees/.codeium/windsurf/bin:$PATH"
-
 
 # Carapace is a nice autocompletion thing
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional

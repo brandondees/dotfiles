@@ -1,16 +1,13 @@
-tap "homebrew/bundle"
-tap "homebrew/cask-versions"
-tap "homebrew/cask-fonts"
 tap "buo/cask-upgrade"
-tap "federico-terzi/espanso"
+# tap "federico-terzi/espanso"
 tap "buildpacks/tap"
-tap "git-duet/tap"
+# tap "git-duet/tap"
 tap "clojure-lsp/brew"
 
 brew "mise"
 brew "git"
 brew "git-lfs"
-brew "git-duet"
+# brew "git-duet"
 brew "lazygit"
 brew "gh"
 brew "jj"
@@ -40,7 +37,7 @@ brew "carapace"
 brew "fd"
 brew "tig"
 brew "thefuck"
-brew "espanso"
+# brew "espanso"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 brew "starship"
@@ -52,10 +49,8 @@ brew "yq"
 brew "jless"
 brew "cmake"
 brew "ctags"
-brew "nativefier"
 brew "curl"
 brew "wget"
-brew "dog"
 brew "siege"
 brew "aider"
 
@@ -72,7 +67,7 @@ brew "tree"
 brew "zopfli"
 brew "graphicsmagick"
 
-brew "mysql"
+# brew "mysql"
 # brew "pack"
 # brew "flyway"
 # brew "rabbitmq"
@@ -80,7 +75,7 @@ brew "mysql"
 # brew "prometheus"
 # brew "grafana"
 # brew "helm"
-brew "terraform-ls"
+# brew "terraform-ls"
 brew "clojure-lsp/brew/clojure-lsp-native"
 brew "awscli"
 brew "exercism"
@@ -107,15 +102,16 @@ cask "git-credential-manager" # https://github.com/git-ecosystem/git-credential-
 # Mac Quality of Life
 cask "raycast"
 cask "wooshy"
-cask "aerospace"
+cask "nikitabobko/tap/aerospace"
+
+
 # cask "amethyst"
 cask "soundsource"
 cask "jordanbaird-ice"
 cask "kindavim"
 cask "chronycontrol" # https://netfuture.ch/2021/12/transparent-trustworthy-time-with-ntp-and-nts/
-cask "barrier"
+# cask "barrier"
 cask "keycastr"
-cask "cheatsheet"
 cask "istat-menus" # todo: set up license activation
 
 cask "contour"
@@ -126,7 +122,6 @@ cask "inkscape"
 cask "licecap"
 cask "vlc"
 cask "obs"
-cask "cakebrew"
 cask "docker"
 cask "orbstack"
 cask "lens"
@@ -165,9 +160,9 @@ cask "graphiql"
 cask "android-studio"
 cask "cursor"
 # cask "intellij-idea" # pending: uninstall download version
-cask "rider"
-cask "datagrip"
-cask "webstorm"
+# cask "rider"
+# cask "datagrip"
+# cask "webstorm"
 # cask "dotnet-sdk"
 # cask "copilot-for-xcode"
 cask "github-copilot-for-xcode"
@@ -179,10 +174,10 @@ mas "Amphetamine", id: 937984704
 mas "Tailscale", id: 1475387142
 mas "LocalSend", id: 1661733229 
 
-# mas "1Password 7 - Password Manager", id: 1333542190
+mas "1Password 7 - Password Manager", id: 1333542190
 # cask "1password-cli"
 
-# mas "AudioSwitcher", id: 561712678
+mas "AudioSwitcher", id: 561712678
 mas "Shush - Microphone Manager", id: 496437906
 
 mas "MarkChart - Mermaid Preview", id: 6475648822  # https://markchart.app/
