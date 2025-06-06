@@ -91,8 +91,8 @@ symbol = " "
 symbol = " "
 
 [nodejs]
-disabled = true
-# symbol = " "
+# disabled = true
+symbol = " "
 # format = "[$symbol($version)]($style) "
 
 [package]
