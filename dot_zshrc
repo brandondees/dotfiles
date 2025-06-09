@@ -225,6 +225,7 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
+eval "$(direnv hook zsh)"
 
 # Entirety of my startup file... then
 if [[ "$PROFILE_STARTUP" == true ]]; then
