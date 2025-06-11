@@ -87,8 +87,6 @@ brew "cask"
 cask "backblaze"
 cask "google-chrome"
 cask "firefox"
-cask "zed"
-cask "visual-studio-code"
 cask "chromedriver"
 cask "hey-desktop"
 cask "syncthing-app"
@@ -104,7 +102,6 @@ cask "raycast"
 cask "wooshy"
 cask "nikitabobko/tap/aerospace"
 
-
 # cask "amethyst"
 cask "soundsource"
 cask "jordanbaird-ice"
@@ -115,18 +112,12 @@ cask "keycastr"
 cask "istat-menus" # todo: set up license activation
 
 cask "contour"
-cask "google-cloud-sdk"
 cask "imageoptim"
 cask "gimp"
 cask "inkscape"
 cask "licecap"
 cask "vlc"
 cask "obs"
-cask "docker-desktop"
-cask "orbstack"
-cask "lens"
-cask "postgres-unofficial" # postgresapp.com
-cask "jpadilla-redis"
 cask "dropbox"
 cask "obsidian"
 cask "nomachine"
@@ -159,6 +150,8 @@ cask "graphiql"
 # IDEs / dev UI tools
 cask "android-studio"
 cask "cursor"
+cask "zed"
+cask "visual-studio-code"
 # cask "intellij-idea" # pending: uninstall download version
 # cask "rider"
 # cask "datagrip"
@@ -167,6 +160,15 @@ cask "cursor"
 # cask "copilot-for-xcode"
 cask "github-copilot-for-xcode"
 
+# More dev tools
+cask "chromedriver"
+cask "container"
+cask "docker-desktop"
+cask "orbstack"
+cask "google-cloud-sdk"
+cask "lens"
+cask "postgres-unofficial" # postgresapp.com
+cask "jpadilla-redis"
 
 brew "mas"
 
