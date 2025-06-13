@@ -197,3 +197,4 @@ mas "EasyRes", id: 688211836
 
 mas "Slack for Desktop", id: 803453959
 
+cask "brainfm"

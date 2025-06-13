@@ -12,3 +12,4 @@ esbuild
 rollup
 eclint
 tree-sitter-cli
+@anthropic-ai/claude-code
