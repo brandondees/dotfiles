@@ -225,6 +225,7 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
+eval "$(atuin gen-completions --shell zsh)"
 eval "$(direnv hook zsh)"
 
 # Entirety of my startup file... then
@@ -243,3 +244,5 @@ export PATH="/Users/dees/.codeium/windsurf/bin:$PATH"
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
+
+ssh-add ~/.ssh/tw_id_ed25519
