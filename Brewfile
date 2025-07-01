@@ -174,7 +174,7 @@ mas "Amphetamine", id: 937984704
 mas "Tailscale", id: 1475387142
 mas "LocalSend", id: 1661733229 
 
-mas "1Password 7 - Password Manager", id: 1333542190
+# mas "1Password 7 - Password Manager", id: 1333542190
 # cask "1password-cli"
 
 mas "AudioSwitcher", id: 561712678
@@ -198,3 +198,5 @@ mas "EasyRes", id: 688211836
 mas "Slack for Desktop", id: 803453959
 
 cask "brainfm"
+cask "ente"
+brew "ente-cli"
