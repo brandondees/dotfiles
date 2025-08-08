@@ -185,7 +185,7 @@ mas "Shush - Microphone Manager", id: 496437906
 mas "MarkChart - Mermaid Preview", id: 6475648822  # https://markchart.app/
 
 mas "XCode", id: 497799835
-mas "Postico", id: 1031280567
+# mas "Postico", id: 1031280567 # seems to be removed from store, maybe not compatible with current OS
 mas "Sequel Ace", id: 1518036000
 mas "Red - UI for Redis", id: 1491764008
 
@@ -194,7 +194,7 @@ brew "bitwarden-cli"
 
 mas "SwordSoft Screenink", id: 556304449
 mas "Recess", id: 621451282
-mas "EasyRes", id: 688211836
+# mas "EasyRes", id: 688211836 # seems to be removed from store, maybe not compatible with current OS
 # mas "Alfred", id: 405843582
 
 mas "Slack for Desktop", id: 803453959
