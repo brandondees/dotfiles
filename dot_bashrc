@@ -37,3 +37,5 @@ eval "$(ssh-agent -s)"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/dees/.cache/lm-studio/bin"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"

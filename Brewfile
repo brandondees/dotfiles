@@ -96,6 +96,7 @@ cask "syncthing-app"
 cask "kitty"
 cask "ghostty"
 cask "alacritty"
+cask "wezterm"
 cask "git-credential-manager" # https://github.com/git-ecosystem/git-credential-manager
 
 # Mac Quality of Life
