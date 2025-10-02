@@ -171,6 +171,7 @@ cask "google-cloud-sdk"
 cask "lens"
 cask "postgres-unofficial" # postgresapp.com
 cask "jpadilla-redis"
+cask "ollama-app"
 
 brew "mas"
 

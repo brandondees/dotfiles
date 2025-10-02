@@ -11,7 +11,10 @@ return {
   -- import/override with your plugins folder
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.python-ruff" },
+  { import = "astrocommunity.pack.terraform" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.ruby" },
@@ -26,4 +29,5 @@ return {
   { import = "astrocommunity.media.image-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.completion.cmp-emoji" },
+  { import = "astrocommunity.completion/copilot-lua-cmp" },
 }
