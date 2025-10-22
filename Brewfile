@@ -167,7 +167,7 @@ cask "chromedriver"
 cask "container"
 cask "docker-desktop"
 cask "orbstack"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 cask "lens"
 cask "postgres-unofficial" # postgresapp.com
 cask "jpadilla-redis"
