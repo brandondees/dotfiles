@@ -245,7 +245,7 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
-ssh-add ~/.ssh/tw_id_ed25519
+find ~/.ssh -type f -regextype egrep -regex '.*/id_[^.]+$' | xargs -I {} ssh-add --apple-use-keychain {}
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
