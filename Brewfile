@@ -3,6 +3,7 @@ tap "buo/cask-upgrade"
 tap "buildpacks/tap"
 # tap "git-duet/tap"
 tap "clojure-lsp/brew"
+tap "acsandmann/tap"
 
 brew "mise"
 brew "git"
@@ -83,6 +84,7 @@ brew "awscli"
 brew "exercism"
 # brew "imageoptim-cli"
 brew "xcodegen"
+brew "acsandmann/tap/rift"
 
 brew "cask"
 
