@@ -20,6 +20,7 @@ brew "lua-language-server"
 brew "luarocks"
 brew "neovim"
 brew "helix"
+brew "ffmpeg"
 brew "chafa" # used for image previews in neovim
 brew "tmate"
 # brew "mermaid-cli"
