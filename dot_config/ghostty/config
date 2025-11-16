@@ -49,11 +49,14 @@
 # 
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
-font-family = 
+font-family = VictorMono NFM SemiBold
+font-family-bold = VictorMono NFM SemiBold
+font-family-italic = VictorMono NFM Bold Italic
+font-family-bold-italic = VictorMono NFM SemiBold Italic
+font-style-bold = true
+font-style-italic = true
+font-style-bold-italic = true
 
-font-family-bold = 
-font-family-italic = 
-font-family-bold-italic = 
 # The named font style to use for each of the requested terminal font styles.
 # This looks up the style based on the font style string advertised by the
 # font itself. For example, "Iosevka Heavy" has a style of "Heavy".
@@ -1313,6 +1316,10 @@ keybind = super+k=clear_screen
 keybind = super+physical:two=goto_tab:2
 keybind = super+physical:six=goto_tab:6
 keybind = super+v=paste_from_clipboard
+
+# Dees custom keybindings
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
 
 # Horizontal window padding. This applies padding between the terminal cells
 # and the left and right window borders. The value is in points, meaning that
