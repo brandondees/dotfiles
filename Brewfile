@@ -23,6 +23,7 @@ brew "neovim"
 brew "helix"
 brew "ffmpeg"
 brew "chafa" # used for image previews in neovim
+brew "mcat" # another clim image preview tool
 brew "tmate"
 # brew "mermaid-cli"
 brew "glow"
