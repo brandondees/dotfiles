@@ -67,7 +67,10 @@ brew "watchexec"
 brew "git-delta"
 brew "nq"
 brew "entr"
-brew "tree"
+# brew "tree"
+brew "tre-command" # modern tree alternative
+
+
 brew "zopfli"
 brew "graphicsmagick"
 
