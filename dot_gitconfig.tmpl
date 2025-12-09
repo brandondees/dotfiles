@@ -5,7 +5,8 @@
   email = {{ .email | quote }}
   token = {{ .github_token | quote }}
 [core]
-  excludesfile = $HOME/.gitignore
+  excludesfile = $HOME/.gitignorej
+  pager = delta
 [alias]
   # Mark a repo as trusted
   trust = "!mkdir -p .git/safe"
@@ -26,3 +27,12 @@
   colorMoved = zebra
 [pager]
   branch = false
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    # dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictStyle = zdiff3
