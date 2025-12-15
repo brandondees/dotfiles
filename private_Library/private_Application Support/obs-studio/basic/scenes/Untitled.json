@@ -61,17 +61,20 @@
         "monitoring_type": 0,
         "private_settings": {}
     },
-    "current_scene": "Sources",
+    "current_scene": "Reactions",
     "current_program_scene": "Webcam",
     "scene_order": [
         {
             "name": "Blackout"
         },
         {
+            "name": "Webcam"
+        },
+        {
             "name": "Sources"
         },
         {
-            "name": "Webcam"
+            "name": "Reactions"
         }
     ],
     "name": "Untitled",
@@ -114,8 +117,8 @@
             "id": "macos-avcapture",
             "versioned_id": "macos-avcapture",
             "settings": {
-                "device": "6C707041-05AC-0010-0005-000000000001",
-                "device_name": "MacBook Pro Camera"
+                "device_name": "MacBook Pro Camera",
+                "device": "6C707041-05AC-0010-0005-000000000001"
             },
             "mixers": 255,
             "sync": 0,
@@ -240,7 +243,7 @@
                     {
                         "name": "macOS Screen Capture",
                         "source_uuid": "e5f68b1a-2941-426f-9abe-8a9a2452aad4",
-                        "visible": true,
+                        "visible": false,
                         "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
@@ -419,10 +422,10 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.2": [],
-                "libobs.hide_scene_item.2": [],
                 "libobs.show_scene_item.3": [],
-                "libobs.hide_scene_item.3": []
+                "libobs.hide_scene_item.3": [],
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -466,8 +469,8 @@
             "id": "macos-avcapture",
             "versioned_id": "macos-avcapture",
             "settings": {
-                "device": "6C707041-05AC-0010-0005-000000000002",
-                "device_name": "MacBook Pro Desk View Camera"
+                "device_name": "MacBook Pro Desk View Camera",
+                "device": "6C707041-05AC-0010-0005-000000000002"
             },
             "mixers": 255,
             "sync": 0,
@@ -490,6 +493,121 @@
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
             "private_settings": {}
+        },
+        {
+            "prev_ver": 520093699,
+            "name": "Reactions",
+            "uuid": "30508770-844c-4899-965f-351c3aadb458",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "id_counter": 2,
+                "custom_size": false,
+                "items": [
+                    {
+                        "name": "DynamicGif",
+                        "source_uuid": "78c5e92b-fbcc-40c7-bde4-3f940865d9e0",
+                        "visible": true,
+                        "locked": true,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 4112.0,
+                            "y": 2658.0
+                        },
+                        "align": 5,
+                        "bounds_type": 2,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.5470278263092041,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 4112.0,
+                            "y": 2658.0
+                        },
+                        "bounds_rel": {
+                            "x": 3.0940556526184082,
+                            "y": 2.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 520093699,
+            "name": "DynamicGif",
+            "uuid": "78c5e92b-fbcc-40c7-bde4-3f940865d9e0",
+            "id": "image_source",
+            "versioned_id": "image_source",
+            "settings": {
+                "unload": true,
+                "file": "/private/var/folders/wp/dy4773m91q1bkv3_5q34yp3m0000gn/T/d7b0c56fc3363a383c69b99dc4fcd409/a-ship-in-the-ocean-with-the-words-let-the-shipping-begin-written-below-it.gif"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
         }
     ],
     "groups": [],
@@ -505,15 +623,15 @@
             "name": "Fade",
             "duration": 300,
             "hotkeys": [],
-            "id": 2,
-            "fade_to_black": false
+            "id": 3,
+            "fade_to_black": true
         },
         {
             "name": "Fade",
-            "duration": 300,
+            "duration": 3000,
             "hotkeys": [],
-            "id": 3,
-            "fade_to_black": true
+            "id": 4,
+            "fade_to_black": false
         }
     ],
     "transitions": [],
@@ -521,7 +639,7 @@
         {
             "monitor": -1,
             "type": 4,
-            "geometry": "AdnQywADAAAAAAYtAAACYgAAB48AAANyAAAGLQAAAn4AAAePAAADcgAAAAAAAAAACAgAAAYtAAACfgAAB48AAANy",
+            "geometry": "AdnQywADAAAAAAYcAAABpAAAB34AAAKkAAAGHAAAAcAAAAd+AAACpAAAAAAAAAAACAgAAAYcAAABwAAAB34AAAKk",
             "alwaysOnTopOverridden": false
         }
     ],
