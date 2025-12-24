@@ -1,0 +1,13 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+go = "latest"
+node = "latest"
+poetry = "1.8.5"
+python = "3.12.8"
+unison = "latest"
+uv = "latest"
+ruby = "latest"
+
+# refer to https://mise.jdx.dev/tips-and-tricks.html#macos-rosetta to get old nodejs working
