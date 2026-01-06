@@ -1,3 +1,5 @@
+[sudo]
+disabled = false
 
 [kubernetes]
 format = '[$symbol$context](dimmed green) '
